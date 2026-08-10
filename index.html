@@ -38,20 +38,6 @@
             z-index: 2;
         }
 
-        /* --- AURORA CURSOR GLOW --- */
-        #aurora-glow {
-            position: fixed;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle at center, rgba(0, 180, 255, 0.15), rgba(100, 70, 255, 0.05), transparent 70%);
-            pointer-events: none;
-            z-index: 0;
-            transition: transform 0.1s ease-out;
-            will-change: transform;
-        }
-
         /* --- CINEMATIC GRAIN --- */
         #grain-overlay {
             position: fixed;
@@ -495,9 +481,6 @@
 </head>
 <body>
 
-    <!-- AURORA GLOW (Cursor follower) -->
-    <div id="aurora-glow"></div>
-
     <!-- CINEMATIC GRAIN OVERLAY -->
     <div id="grain-overlay"></div>
 
@@ -610,21 +593,7 @@
         (function() {
             'use strict';
 
-            // --- 1. AURORA CURSOR GLOW ---
-            const aurora = document.getElementById('aurora-glow');
-            let mouseX = window.innerWidth / 2;
-            let mouseY = window.innerHeight / 2;
-
-            document.addEventListener('mousemove', function(e) {
-                mouseX = e.clientX;
-                mouseY = e.clientY;
-                // Convert cursor position to percentage for background-position
-                const xPercent = (mouseX / window.innerWidth) * 100;
-                const yPercent = (mouseY / window.innerHeight) * 100;
-                aurora.style.transform = `translate(${xPercent - 50}%, ${yPercent - 50}%)`;
-            });
-
-            // --- 2. KINETIC MORPHING HEADLINE ---
+            // --- 1. KINETIC MORPHING HEADLINE ---
             const morphText = document.getElementById('morphing-text');
             const phrases = [
                 'Intelligence at the edge.',
@@ -644,7 +613,7 @@
                 }, 300);
             }, 3500);
 
-            // --- 3. SCROLL-TRIGGERED REVEALS (Intersection Observer) ---
+            // --- 2. SCROLL-TRIGGERED REVEALS (Intersection Observer) ---
             const revealElements = document.querySelectorAll('.reveal');
 
             const observer = new IntersectionObserver((entries) => {
@@ -660,7 +629,7 @@
 
             revealElements.forEach((el) => observer.observe(el));
 
-            // --- 4. 3D MOUSE-TILT (Hologram Parallax) ---
+            // --- 3. 3D MOUSE-TILT (Hologram Parallax) ---
             const tiltCards = document.querySelectorAll('.tilt-3d');
 
             tiltCards.forEach((card) => {
@@ -671,7 +640,6 @@
                     const centerX = rect.width / 2;
                     const centerY = rect.height / 2;
 
-                    // Calculate rotation (max ±8 degrees for subtlety)
                     const rotateX = ((y - centerY) / centerY) * -8;
                     const rotateY = ((x - centerX) / centerX) * 8;
 
@@ -687,7 +655,7 @@
                 });
             });
 
-            // --- 5. CONSOLE EASTER EGG ---
+            // --- 4. CONSOLE EASTER EGG ---
             console.log('🚑 Inarius Dynamics — Hyper-Glass 2.0 | Edge AI | Built for the frontline.');
 
         })();

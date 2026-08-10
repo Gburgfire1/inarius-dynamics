@@ -161,7 +161,19 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+            display: flex;
+            align-items: center;
         }
+
+        .logo img {
+            height: 36px;
+            width: auto;
+            display: inline-block;
+            vertical-align: middle;
+            margin-right: 14px;
+            /* No background, it's transparent! */
+        }
+
         .logo span {
             font-weight: 300;
             color: #8899aa;
@@ -488,7 +500,10 @@
 
         <!-- NAV -->
         <nav class="reveal">
-            <div class="logo">INARIUS <span>DYNAMICS</span></div>
+            <div class="logo">
+                <img src="inarius_logo.png" alt="Inarius Dynamics Logo">
+                INARIUS <span>DYNAMICS</span>
+            </div>
             <div class="nav-tag">⚡ Edge AI · On-Device Intelligence</div>
         </nav>
 

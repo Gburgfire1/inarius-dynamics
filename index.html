@@ -3,18 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inarius Dynamics · Edge AI for Emergency & Clinical</title>
+    <title>Inarius Dynamics · Edge AI for EMS</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
     <style>
+        /* --- RESET & BASE --- */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
-        html, body {
+        html,
+        body {
             height: 100%;
             font-family: 'Inter', sans-serif;
             background: #080c14;
@@ -23,17 +25,9 @@
             overflow-x: hidden;
         }
 
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: radial-gradient(circle at 20% 50%, rgba(0, 180, 255, 0.06) 0%, transparent 50%),
-                              radial-gradient(circle at 80% 20%, rgba(255, 70, 70, 0.04) 0%, transparent 50%);
-            pointer-events: none;
-            z-index: 0;
+        body {
+            background-image: radial-gradient(circle at 20% 50%, rgba(0, 180, 255, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(100, 70, 255, 0.04) 0%, transparent 50%);
         }
 
         .container {
@@ -41,42 +35,129 @@
             margin: 0 auto;
             padding: 0 30px;
             position: relative;
-            z-index: 1;
+            z-index: 2;
         }
 
-        /* Full-Screen Hero */
-        .hero-wrapper {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            min-height: 100vh;
-            padding: 40px 0 60px 0;
+        /* --- AURORA CURSOR GLOW --- */
+        #aurora-glow {
+            position: fixed;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at center, rgba(0, 180, 255, 0.15), rgba(100, 70, 255, 0.05), transparent 70%);
+            pointer-events: none;
+            z-index: 0;
+            transition: transform 0.1s ease-out;
+            will-change: transform;
         }
 
+        /* --- CINEMATIC GRAIN --- */
+        #grain-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            pointer-events: none;
+            z-index: 999;
+            opacity: 0.35;
+            mix-blend-mode: overlay;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='1' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+            background-repeat: repeat;
+            background-size: 256px 256px;
+        }
+
+        /* --- GLASSMORPHISM 2.0 (Hyper-Glass) --- */
         .glass {
+            position: relative;
             background: rgba(255, 255, 255, 0.04);
             backdrop-filter: blur(16px) saturate(180%);
             -webkit-backdrop-filter: blur(16px) saturate(180%);
             border: 1px solid rgba(255, 255, 255, 0.06);
             border-radius: 24px;
-            box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.6);
+            box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(0, 180, 255, 0.0);
+            transition: box-shadow 0.3s ease, transform 0.3s ease;
+            overflow: hidden;
         }
 
-        @keyframes fadeUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
+        /* Animated Glowing Border (Hyper-Glass pulse) */
+        .glass::after {
+            content: '';
+            position: absolute;
+            inset: -1px;
+            border-radius: 25px;
+            padding: 1px;
+            background: linear-gradient(135deg, rgba(0, 180, 255, 0.0), rgba(0, 180, 255, 0.0));
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            pointer-events: none;
+            transition: all 0.6s ease;
+            animation: borderPulse 4s ease-in-out infinite;
         }
 
-        .animate-on-load {
-            animation: fadeUp 0.8s cubic-bezier(0.2, 0.9, 0.3, 1) forwards;
+        @keyframes borderPulse {
+            0%,
+            100% {
+                background: linear-gradient(135deg, rgba(0, 180, 255, 0.15), rgba(100, 70, 255, 0.05));
+            }
+            50% {
+                background: linear-gradient(135deg, rgba(0, 220, 255, 0.3), rgba(80, 50, 255, 0.15));
+            }
+        }
+
+        /* "Wet Glass" Shine Sweep */
+        .glass::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(135deg,
+                    transparent 30%,
+                    rgba(255, 255, 255, 0.04) 45%,
+                    rgba(255, 255, 255, 0.08) 50%,
+                    rgba(255, 255, 255, 0.04) 55%,
+                    transparent 70%);
+            background-size: 300% 300%;
+            pointer-events: none;
+            z-index: 0;
+            animation: shineSweep 8s ease-in-out infinite;
+            mix-blend-mode: overlay;
+        }
+
+        @keyframes shineSweep {
+            0% {
+                transform: translateX(-100%) rotate(25deg);
+            }
+            30% {
+                transform: translateX(100%) rotate(25deg);
+            }
+            100% {
+                transform: translateX(100%) rotate(25deg);
+            }
+        }
+
+        .glass>* {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* --- SCROLL REVEAL (Base hidden state) --- */
+        .reveal {
             opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0.9s cubic-bezier(0.2, 0.9, 0.3, 1), transform 0.9s cubic-bezier(0.2, 0.9, 0.3, 1);
         }
-        .delay-1 { animation-delay: 0.1s; }
-        .delay-2 { animation-delay: 0.25s; }
-        .delay-3 { animation-delay: 0.4s; }
-        .delay-4 { animation-delay: 0.55s; }
 
-        /* Navigation */
+        .reveal.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* --- NAV --- */
         nav {
             display: flex;
             justify-content: space-between;
@@ -113,13 +194,21 @@
             border: 1px solid rgba(0, 200, 255, 0.15);
         }
 
-        /* HERO LAYOUT */
+        /* --- HERO --- */
+        .hero-wrapper {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 40px 0 60px 0;
+        }
+
         .hero-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 60px;
             align-items: center;
-            padding: 20px 0 20px 0;
+            padding: 20px 0;
         }
 
         .hero h1 {
@@ -135,6 +224,12 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+        }
+
+        #morphing-text {
+            display: inline-block;
+            min-height: 4.2rem;
+            transition: opacity 0.5s ease;
         }
 
         .hero p {
@@ -187,7 +282,7 @@
             background: rgba(255, 255, 255, 0.12);
         }
 
-        /* Right side: Core Capabilities (No fake stats) */
+        /* --- Capabilities (Right side of hero) --- */
         .capabilities-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -201,6 +296,7 @@
             border: 1px solid rgba(255, 255, 255, 0.05);
             transition: all 0.3s ease;
             text-align: center;
+            cursor: default;
         }
 
         .cap-card:hover {
@@ -231,13 +327,14 @@
             line-height: 1.4;
         }
 
-        /* BENTO GRID: FEATURES */
+        /* --- BENTO FEATURES --- */
         .section-title {
             font-size: 2.4rem;
             font-weight: 700;
             letter-spacing: -1px;
             margin: 80px 0 16px 0;
         }
+
         .section-sub {
             color: #7a8da0;
             max-width: 600px;
@@ -258,11 +355,7 @@
             cursor: default;
             border: 1px solid rgba(255, 255, 255, 0.03);
         }
-        .bento-item:hover {
-            transform: scale(1.02);
-            border-color: rgba(0, 180, 255, 0.15);
-            background: rgba(255, 255, 255, 0.07);
-        }
+
         .bento-item .icon {
             font-size: 2.4rem;
             margin-bottom: 16px;
@@ -285,7 +378,7 @@
             border-left: 3px solid #00d4ff;
         }
 
-        /* HARDWARE TEASE */
+        /* --- HARDWARE TEASE --- */
         .hardware-tease {
             display: flex;
             justify-content: space-between;
@@ -295,6 +388,7 @@
             background: linear-gradient(145deg, rgba(0, 100, 255, 0.06), rgba(0, 0, 0, 0.2));
             border: 1px solid rgba(0, 180, 255, 0.08);
         }
+
         .hardware-tease h2 {
             font-size: 1.8rem;
             font-weight: 600;
@@ -302,6 +396,7 @@
         .hardware-tease span {
             color: #00d4ff;
         }
+
         .chip-badge {
             background: rgba(0, 200, 255, 0.1);
             padding: 8px 24px;
@@ -312,6 +407,7 @@
             color: #88ddff;
         }
 
+        /* --- FOOTER --- */
         footer {
             border-top: 1px solid rgba(255, 255, 255, 0.04);
             padding: 40px 0;
@@ -334,130 +430,268 @@
             color: #fff;
         }
 
-        /* RESPONSIVE */
-        @media (max-width: 1024px) {
-            .hero-grid { grid-template-columns: 1fr; gap: 40px; }
-            .hero h1 { font-size: 2.8rem; }
-            .bento-grid { grid-template-columns: 1fr 1fr; }
-            .bento-item.colspan-2 { grid-column: span 1; }
-            .hero-wrapper { min-height: auto; padding: 20px 0; }
+        /* --- 3D TILT CLASSES --- */
+        .tilt-3d {
+            transition: transform 0.1s ease, box-shadow 0.3s ease;
+            will-change: transform;
+            transform-style: preserve-3d;
+            perspective: 1000px;
         }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 1024px) {
+            .hero-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+            .bento-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            .bento-item.colspan-2 {
+                grid-column: span 1;
+            }
+            .hero-wrapper {
+                min-height: auto;
+                padding: 20px 0;
+            }
+        }
+
         @media (max-width: 640px) {
-            .hero h1 { font-size: 2.2rem; }
-            .capabilities-grid { grid-template-columns: 1fr; }
-            .cap-card.large { grid-column: span 1; }
-            .bento-grid { grid-template-columns: 1fr; }
-            .hardware-tease { flex-direction: column; align-items: flex-start; gap: 20px; }
-            nav { flex-direction: column; gap: 12px; align-items: flex-start; }
-            .container { padding: 0 16px; }
-            .btn-primary, .btn-secondary { width: 100%; text-align: center; }
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            .capabilities-grid {
+                grid-template-columns: 1fr;
+            }
+            .cap-card.large {
+                grid-column: span 1;
+            }
+            .bento-grid {
+                grid-template-columns: 1fr;
+            }
+            .hardware-tease {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 20px;
+            }
+            nav {
+                flex-direction: column;
+                gap: 12px;
+                align-items: flex-start;
+            }
+            .container {
+                padding: 0 16px;
+            }
+            .btn-primary,
+            .btn-secondary {
+                width: 100%;
+                text-align: center;
+            }
         }
     </style>
 </head>
 <body>
 
-<div class="container">
+    <!-- AURORA GLOW (Cursor follower) -->
+    <div id="aurora-glow"></div>
 
-    <!-- NAV -->
-    <nav class="animate-on-load delay-1">
-        <div class="logo">INARIUS <span>DYNAMICS</span></div>
-        <div class="nav-tag">⚡ Edge AI · On-Device Intelligence</div>
-    </nav>
+    <!-- CINEMATIC GRAIN OVERLAY -->
+    <div id="grain-overlay"></div>
 
-    <!-- FULL-SCREEN HERO -->
-    <section class="hero-wrapper">
-        <div class="hero-grid">
+    <div class="container">
 
-            <!-- LEFT: Text -->
-            <div class="hero animate-on-load delay-1">
-                <h1>Intelligence at the <span class="highlight">edge.</span><br>No internet <span class="highlight">required.</span></h1>
-                <p>
-                    Inarius Dynamics builds powerful On-Device AI models that run directly on your tablets, monitors, and future devices. 
-                    Zero latency. Complete privacy. No dependence on spotty cell signals or Wi-Fi. 
-                    Focus on your patient, not the paperwork.
-                </p>
-                <div class="cta-group">
-                    <a href="#" class="btn-primary">Partner with Us</a>
-                    <a href="#" class="btn-secondary">View Roadmap →</a>
+        <!-- NAV -->
+        <nav class="reveal">
+            <div class="logo">INARIUS <span>DYNAMICS</span></div>
+            <div class="nav-tag">⚡ Edge AI · On-Device Intelligence</div>
+        </nav>
+
+        <!-- HERO WRAPPER -->
+        <section class="hero-wrapper">
+
+            <div class="hero-grid">
+
+                <!-- LEFT: Text -->
+                <div class="hero reveal">
+                    <h1>
+                        <span id="morphing-text" class="highlight">Intelligence at the edge.</span>
+                        <br>No internet <span class="highlight">required.</span>
+                    </h1>
+                    <p>
+                        Inarius Dynamics builds powerful On-Device AI models that run directly on your tablets, monitors, and future devices.
+                        Zero latency. Complete privacy. No dependence on spotty cell signals or Wi-Fi.
+                        Focus on your patient, not the paperwork.
+                    </p>
+                    <div class="cta-group">
+                        <a href="#" class="btn-primary">Partner with Us</a>
+                        <a href="#" class="btn-secondary">View Roadmap →</a>
+                    </div>
                 </div>
+
+                <!-- RIGHT: Core Capabilities -->
+                <div class="capabilities-grid reveal">
+                    <div class="cap-card large glass tilt-3d">
+                        <span class="cap-icon">🧠</span>
+                        <div class="cap-title">On-Device AI</div>
+                        <div class="cap-desc">Advanced models run locally. No cloud, no latency, no privacy concerns.</div>
+                    </div>
+                    <div class="cap-card glass tilt-3d">
+                        <span class="cap-icon">📡</span>
+                        <div class="cap-title">Truly Offline</div>
+                        <div class="cap-desc">Works in tunnels, rural areas, and basements. Zero internet needed.</div>
+                    </div>
+                    <div class="cap-card glass tilt-3d">
+                        <span class="cap-icon">🔒</span>
+                        <div class="cap-title">HIPAA by Design</div>
+                        <div class="cap-desc">Patient data never leaves the device. Security baked in.</div>
+                    </div>
+                </div>
+
             </div>
+        </section>
 
-            <!-- RIGHT: Core Capabilities (No fake stats) -->
-            <div class="capabilities-grid animate-on-load delay-2">
-                <div class="cap-card large">
-                    <span class="cap-icon">🧠</span>
-                    <div class="cap-title">On-Device AI</div>
-                    <div class="cap-desc">Advanced models run locally. No cloud, no latency, no privacy concerns.</div>
-                </div>
-                <div class="cap-card">
-                    <span class="cap-icon">📡</span>
-                    <div class="cap-title">Truly Offline</div>
-                    <div class="cap-desc">Works in tunnels, rural areas, and basements. Zero internet needed.</div>
-                </div>
-                <div class="cap-card">
-                    <span class="cap-icon">🔒</span>
-                    <div class="cap-title">HIPAA by Design</div>
-                    <div class="cap-desc">Patient data never leaves the device. Security baked in.</div>
-                </div>
+        <!-- BENTO FEATURES -->
+        <h2 class="section-title reveal">Built to <span style="color:#00d4ff;">reduce friction</span> and restore focus</h2>
+        <p class="section-sub reveal">
+            From AI-driven charting assistance to unified hardware ecosystems—everything we build fights fragmentation and cognitive load.
+        </p>
+
+        <div class="bento-grid">
+            <div class="bento-item glass colspan-2 reveal accent-border tilt-3d">
+                <span class="icon">⚡</span>
+                <h3>Edge AI Engine</h3>
+                <p>Real-time clinical decision support and automated reporting suggestions—all processed locally on your device. Instantaneous, private, and always available.</p>
+            </div>
+            <div class="bento-item glass reveal tilt-3d">
+                <span class="icon">📱</span>
+                <h3>Unified App Suite</h3>
+                <p>From ePCR to dispatch sync—intuitive, fast, and built for gloved hands in the back of a rig. Minimal clicks, maximum clarity.</p>
+            </div>
+            <div class="bento-item glass reveal tilt-3d">
+                <span class="icon">🔄</span>
+                <h3>End Fragmentation</h3>
+                <p>One platform. One workflow. Your monitors, tablets, and station PCs finally operate as a single, cohesive system.</p>
+            </div>
+            <div class="bento-item glass reveal tilt-3d">
+                <span class="icon">📊</span>
+                <h3>Smart Dashboards</h3>
+                <p>Administrative insights that highlight system bottlenecks without drowning you in noise. Data you actually need to act on.</p>
+            </div>
+            <div class="bento-item glass colspan-2 reveal tilt-3d">
+                <span class="icon">🔮</span>
+                <h3>Future-Ready Hardware</h3>
+                <p>We are designing physical devices—wearable monitors, in-vehicle gateways, and more—that inherit the same "just works" philosophy with Edge AI at the core.</p>
             </div>
         </div>
-    </section>
 
-    <!-- BENTO FEATURES -->
-    <h2 class="section-title animate-on-load delay-3">Built to <span style="color:#00d4ff;">reduce friction</span> and restore focus</h2>
-    <p class="section-sub animate-on-load delay-3">
-        From AI-driven charting assistance to unified hardware ecosystems—everything we build fights fragmentation and cognitive load.
-    </p>
+        <!-- HARDWARE TEASER -->
+        <div class="hardware-tease glass reveal tilt-3d">
+            <div>
+                <h2>🧬 Next-gen <span>devices</span> + Edge AI</h2>
+                <p style="color:#9aafc7; margin-top: 8px;">Tight integration, rugged durability, zero setup friction—and intelligence that runs entirely on-device.</p>
+            </div>
+            <div class="chip-badge">Hardware R&D · 2027</div>
+        </div>
 
-    <div class="bento-grid">
-        <div class="bento-item glass colspan-2 animate-on-load delay-2 accent-border">
-            <span class="icon">⚡</span>
-            <h3>Edge AI Engine</h3>
-            <p>Real-time clinical decision support and automated reporting suggestions—all processed locally on your device. Instantaneous, private, and always available.</p>
-        </div>
-        <div class="bento-item glass animate-on-load delay-3">
-            <span class="icon">📱</span>
-            <h3>Unified App Suite</h3>
-            <p>From ePCR to dispatch sync—intuitive, fast, and built for gloved hands in the back of a rig. Minimal clicks, maximum clarity.</p>
-        </div>
-        <div class="bento-item glass animate-on-load delay-4">
-            <span class="icon">🔄</span>
-            <h3>End Fragmentation</h3>
-            <p>One platform. One workflow. Your monitors, tablets, and station PCs finally operate as a single, cohesive system.</p>
-        </div>
-        <div class="bento-item glass animate-on-load delay-2">
-            <span class="icon">📊</span>
-            <h3>Smart Dashboards</h3>
-            <p>Administrative insights that highlight system bottlenecks without drowning you in noise. Data you actually need to act on.</p>
-        </div>
-        <div class="bento-item glass colspan-2 animate-on-load delay-3">
-            <span class="icon">🔮</span>
-            <h3>Future-Ready Hardware</h3>
-            <p>We are designing physical devices—wearable monitors, in-vehicle gateways, and more—that inherit the same "just works" philosophy with Edge AI at the core.</p>
-        </div>
+        <!-- FOOTER -->
+        <footer class="reveal">
+            <div>© 2026 Inarius Dynamics — Built for the people who run toward the sirens.</div>
+            <div>
+                <a href="#">Privacy</a> · <a href="#">Contact</a> · <a href="#">Careers</a>
+            </div>
+        </footer>
+
     </div>
 
-    <!-- HARDWARE TEASER -->
-    <div class="hardware-tease glass animate-on-load delay-4">
-        <div>
-            <h2>🧬 Next-gen <span>devices</span> + Edge AI</h2>
-            <p style="color:#9aafc7; margin-top: 8px;">Tight integration, rugged durability, zero setup friction—and intelligence that runs entirely on-device.</p>
-        </div>
-        <div class="chip-badge">Hardware R&D · 2027</div>
-    </div>
+    <script>
+        (function() {
+            'use strict';
 
-    <!-- FOOTER -->
-    <footer>
-        <div>© 2026 Inarius Dynamics — Built for the people who run toward the sirens.</div>
-        <div>
-            <a href="#">Privacy</a> · <a href="#">Contact</a> · <a href="#">Careers</a>
-        </div>
-    </footer>
+            // --- 1. AURORA CURSOR GLOW ---
+            const aurora = document.getElementById('aurora-glow');
+            let mouseX = window.innerWidth / 2;
+            let mouseY = window.innerHeight / 2;
 
-</div>
+            document.addEventListener('mousemove', function(e) {
+                mouseX = e.clientX;
+                mouseY = e.clientY;
+                // Convert cursor position to percentage for background-position
+                const xPercent = (mouseX / window.innerWidth) * 100;
+                const yPercent = (mouseY / window.innerHeight) * 100;
+                aurora.style.transform = `translate(${xPercent - 50}%, ${yPercent - 50}%)`;
+            });
 
-<script>
-    console.log("🚑 Inarius Dynamics — Edge AI. Zero latency. Total privacy.");
-</script>
+            // --- 2. KINETIC MORPHING HEADLINE ---
+            const morphText = document.getElementById('morphing-text');
+            const phrases = [
+                'Intelligence at the edge.',
+                'Zero latency. Zero clicks.',
+                'Focus on the patient.',
+                'AI that works anywhere.',
+                'Charting that happens itself.'
+            ];
+            let index = 0;
+
+            setInterval(() => {
+                morphText.style.opacity = '0';
+                setTimeout(() => {
+                    index = (index + 1) % phrases.length;
+                    morphText.textContent = phrases[index];
+                    morphText.style.opacity = '1';
+                }, 300);
+            }, 3500);
+
+            // --- 3. SCROLL-TRIGGERED REVEALS (Intersection Observer) ---
+            const revealElements = document.querySelectorAll('.reveal');
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                    }
+                });
+            }, {
+                threshold: 0.15,
+                rootMargin: '0px 0px -50px 0px'
+            });
+
+            revealElements.forEach((el) => observer.observe(el));
+
+            // --- 4. 3D MOUSE-TILT (Hologram Parallax) ---
+            const tiltCards = document.querySelectorAll('.tilt-3d');
+
+            tiltCards.forEach((card) => {
+                card.addEventListener('mousemove', function(e) {
+                    const rect = this.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+                    const centerX = rect.width / 2;
+                    const centerY = rect.height / 2;
+
+                    // Calculate rotation (max ±8 degrees for subtlety)
+                    const rotateX = ((y - centerY) / centerY) * -8;
+                    const rotateY = ((x - centerX) / centerX) * 8;
+
+                    this.style.transform =
+                        `perspective(800px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
+                    this.style.transition = 'transform 0.08s ease-out';
+                });
+
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform =
+                    `perspective(800px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)`;
+                    this.style.transition = 'transform 0.5s cubic-bezier(0.2, 0.9, 0.3, 1)';
+                });
+            });
+
+            // --- 5. CONSOLE EASTER EGG ---
+            console.log('🚑 Inarius Dynamics — Hyper-Glass 2.0 | Edge AI | Built for the frontline.');
+
+        })();
+    </script>
+
 </body>
 </html>

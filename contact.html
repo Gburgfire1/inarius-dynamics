@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact · Inarius Dynamics</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;600;700;800&display=swap" rel="stylesheet" />
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html, body {
+            height: 100%;
+            font-family: 'Inter', sans-serif;
+            background: #080c14;
+            color: #e8edf5;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        body {
+            background-image:
+                radial-gradient(circle at 20% 50%, rgba(0, 180, 255, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(100, 70, 255, 0.04) 0%, transparent 50%);
+        }
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 30px;
+            position: relative;
+            z-index: 2;
+        }
+        #grain-overlay {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100vw; height: 100vh;
+            pointer-events: none;
+            z-index: 999;
+            opacity: 0.35;
+            mix-blend-mode: overlay;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='1' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+            background-repeat: repeat;
+            background-size: 256px 256px;
+        }
+        .glass {
+            position: relative;
+            background: rgba(255, 255, 255, 0.04);
+            backdrop-filter: blur(16px) saturate(180%);
+            -webkit-backdrop-filter: blur(16px) saturate(180%);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 24px;
+            box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.6);
+            overflow: hidden;
+        }
+        .glass::after {
+            content: '';
+            position: absolute;
+            inset: -1px;
+            border-radius: 25px;
+            padding: 1px;
+            background: linear-gradient(135deg, rgba(0, 180, 255, 0.15), rgba(100, 70, 255, 0.05));
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            pointer-events: none;
+            animation: borderPulse 4s ease-in-out infinite;
+        }
+        @keyframes borderPulse {
+            0%, 100% { background: linear-gradient(135deg, rgba(0, 180, 255, 0.15), rgba(100, 70, 255, 0.05)); }
+            50% { background: linear-gradient(135deg, rgba(0, 220, 255, 0.3), rgba(80, 50, 255, 0.15)); }
+        }
+        .glass > * { position: relative; z-index: 1; }
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.9s cubic-bezier(0.2, 0.9, 0.3, 1), transform 0.9s cubic-bezier(0.2, 0.9, 0.3, 1);
+        }
+        .reveal.is-visible { opacity: 1; transform: translateY(0); }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 24px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+        .logo {
+            font-size: 1.6rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            background: linear-gradient(135deg, #00d4ff, #0072ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+        .logo img {
+            height: 65px;
+            width: auto;
+            margin-right: 14px;
+        }
+        .logo span {
+            font-weight: 300;
+            color: #8899aa;
+            -webkit-text-fill-color: #8899aa;
+        }
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+        .nav-links a {
+            color: #a0b3cc;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            font-size: 0.95rem;
+        }
+        .nav-links a:hover,
+        .nav-links a.active { color: #00d4ff; }
+        .nav-tag {
+            background: rgba(0, 200, 255, 0.12);
+            padding: 8px 18px;
+            border-radius: 40px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #88ddff;
+            border: 1px solid rgba(0, 200, 255, 0.15);
+        }
+        .page-hero { padding: 40px 0 12px 0; }
+        .page-hero h1 {
+            font-size: 3.4rem;
+            font-weight: 800;
+            letter-spacing: -2px;
+            line-height: 1.1;
+        }
+        .page-hero h1 .highlight {
+            background: linear-gradient(135deg, #00d4ff, #0088ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .page-hero p {
+            font-size: 1.2rem;
+            color: #a0b3cc;
+            max-width: 640px;
+            margin-top: 16px;
+        }
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1.4fr 1fr;
+            gap: 28px;
+            margin: 48px 0 80px 0;
+            align-items: start;
+        }
+        .form-card { padding: 36px 32px; }
+        .form-card h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            letter-spacing: -0.5px;
+        }
+        .form-card .form-sub {
+            color: #7a8da0;
+            font-size: 0.95rem;
+            margin-bottom: 28px;
+        }
+        .field { margin-bottom: 20px; }
+        .field label {
+            display: block;
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 0.4px;
+            text-transform: uppercase;
+            color: #8aa3c0;
+            margin-bottom: 8px;
+        }
+        .field input,
+        .field textarea {
+            width: 100%;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 14px;
+            padding: 14px 16px;
+            color: #e8edf5;
+            font-family: inherit;
+            font-size: 1rem;
+            outline: none;
+            transition: border-color 0.2s ease, background 0.2s ease;
+        }
+        .field input:focus,
+        .field textarea:focus {
+            border-color: rgba(0, 180, 255, 0.45);
+            background: rgba(255, 255, 255, 0.06);
+        }
+        .field textarea { min-height: 140px; resize: vertical; }
+        .field .error {
+            display: none;
+            color: #ff8a8a;
+            font-size: 0.8rem;
+            margin-top: 6px;
+        }
+        .field.has-error input,
+        .field.has-error textarea { border-color: rgba(255, 100, 100, 0.5); }
+        .field.has-error .error { display: block; }
+        .btn-primary {
+            background: linear-gradient(135deg, #0088ff, #0055cc);
+            color: white;
+            border: none;
+            padding: 16px 40px;
+            border-radius: 60px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 24px rgba(0, 100, 255, 0.25);
+            font-family: inherit;
+        }
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 32px rgba(0, 100, 255, 0.4);
+        }
+        .btn-primary:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+        .form-note {
+            margin-top: 14px;
+            font-size: 0.85rem;
+            color: #5a6f85;
+        }
+        .success-state {
+            display: none;
+            text-align: center;
+            padding: 40px 20px;
+        }
+        .success-state.is-visible { display: block; }
+        .success-state .icon { font-size: 2.6rem; margin-bottom: 12px; }
+        .success-state h3 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+        .success-state p { color: #9aafc7; max-width: 360px; margin: 0 auto; }
+        #contact-form.is-hidden { display: none; }
+        .side-stack { display: flex; flex-direction: column; gap: 16px; }
+        .info-card { padding: 24px 22px; }
+        .info-card .icon { font-size: 1.6rem; display: block; margin-bottom: 8px; }
+        .info-card h3 {
+            font-size: 1.05rem;
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+        .info-card p {
+            color: #9aafc7;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+        .info-card a {
+            color: #00d4ff;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px solid transparent;
+            transition: 0.2s;
+        }
+        .info-card a:hover {
+            border-bottom-color: #00d4ff;
+            color: #fff;
+        }
+        footer {
+            border-top: 1px solid rgba(255, 255, 255, 0.04);
+            padding: 40px 0;
+            margin-top: 40px;
+            display: flex;
+            justify-content: space-between;
+            color: #5a6f85;
+            font-size: 0.9rem;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+        footer a {
+            color: #8aa3c0;
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: 0.2s;
+        }
+        footer a:hover {
+            border-bottom-color: #00d4ff;
+            color: #fff;
+        }
+        @media (max-width: 1024px) {
+            .contact-grid { grid-template-columns: 1fr; }
+            .page-hero h1 { font-size: 2.6rem; }
+            nav { flex-direction: column; align-items: flex-start; }
+            .nav-links { flex-wrap: wrap; gap: 16px; }
+        }
+        @media (max-width: 640px) {
+            .page-hero h1 { font-size: 2rem; }
+            .container { padding: 0 16px; }
+            .form-card { padding: 28px 20px; }
+            .btn-primary { width: 100%; }
+            .nav-links { gap: 12px; }
+        }
+    </style>
+</head>
+<body>
+    <div id="grain-overlay"></div>
+    <div class="container">
+        <nav>
+            <a href="/" class="logo">
+                <img src="Inarius_logo.png" alt="Inarius Dynamics Logo" />
+                INARIUS <span>DYNAMICS</span>
+            </a>
+            <div class="nav-links">
+                <a href="/">Home</a>
+                <a href="/products.html">Products</a>
+                <a href="/about.html">About</a>
+                <a href="/contact.html" class="active">Contact</a>
+                <div class="nav-tag">⚡ Edge AI</div>
+            </div>
+        </nav>
+
+        <section class="page-hero reveal">
+            <h1>Let's build for the <span class="highlight">frontline.</span></h1>
+            <p>
+                Partnerships, product demos, press, or a question about Edge AI for EMS —
+                send a note and we'll get back to you.
+            </p>
+        </section>
+
+        <div class="contact-grid">
+            <div class="form-card glass reveal">
+                <!--
+                  Form uses mailto for now (no backend secrets required).
+                  To upgrade later: point action at Formspree / Web3Forms and remove the JS mailto handler.
+                -->
+                <div id="form-panel">
+                    <h2>Send a message</h2>
+                    <p class="form-sub">We read every note. Typical reply within 1–2 business days.</p>
+                    <form id="contact-form" novalidate>
+                        <div class="field" data-field="name">
+                            <label for="name">Name</label>
+                            <input id="name" name="name" type="text" autocomplete="name" required placeholder="Jordan Rivera" />
+                            <div class="error">Please enter your name.</div>
+                        </div>
+                        <div class="field" data-field="email">
+                            <label for="email">Email</label>
+                            <input id="email" name="email" type="email" autocomplete="email" required placeholder="you@agency.gov" />
+                            <div class="error">Please enter a valid email.</div>
+                        </div>
+                        <div class="field" data-field="org">
+                            <label for="org">Organization <span style="font-weight:400;text-transform:none;letter-spacing:0;">(optional)</span></label>
+                            <input id="org" name="org" type="text" autocomplete="organization" placeholder="Metro Fire / EMS" />
+                        </div>
+                        <div class="field" data-field="message">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" required placeholder="Tell us what you're working on…"></textarea>
+                            <div class="error">Please add a short message.</div>
+                        </div>
+                        <button type="submit" class="btn-primary" id="submit-btn">Send message</button>
+                        <p class="form-note">Opens your email app with the message ready to send.</p>
+                    </form>
+                </div>
+                <div class="success-state" id="success-state" aria-live="polite">
+                    <div class="icon">✅</div>
+                    <h3>Almost there</h3>
+                    <p>Your email app should open with the message filled in. Hit send, and we'll take it from there.</p>
+                </div>
+            </div>
+
+            <div class="side-stack reveal">
+                <div class="info-card glass">
+                    <span class="icon">🤝</span>
+                    <h3>Partnerships</h3>
+                    <p>Agencies, integrators, and hardware partners exploring Edge AI on-device.</p>
+                </div>
+                <div class="info-card glass">
+                    <span class="icon">🖥️</span>
+                    <h3>Product demos</h3>
+                    <p>OmniApp / OmniHealth and OmniPD walkthroughs for fire, EMS, and command staff.</p>
+                </div>
+                <div class="info-card glass">
+                    <span class="icon">✉️</span>
+                    <h3>Direct email</h3>
+                    <p><a id="direct-email" href="mailto:founders@inariusdynamics.com">founders@inariusdynamics.com</a></p>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <div>© 2026 Inarius Dynamics — Built for the people who run toward the sirens.</div>
+            <div>
+                <a href="#">Privacy</a> ·
+                <a href="/contact.html">Contact</a> ·
+                <a href="#">Careers</a>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        (function () {
+            // Replace this address when you have a preferred inbox.
+            const CONTACT_EMAIL = 'founders@inariusdynamics.com';
+
+            const revealElements = document.querySelectorAll('.reveal');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) entry.target.classList.add('is-visible');
+                });
+            }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+            revealElements.forEach((el) => observer.observe(el));
+
+            const form = document.getElementById('contact-form');
+            const success = document.getElementById('success-state');
+            const direct = document.getElementById('direct-email');
+            if (direct) {
+                direct.href = 'mailto:' + CONTACT_EMAIL;
+                direct.textContent = CONTACT_EMAIL;
+            }
+
+            function setError(name, on) {
+                const field = form.querySelector('[data-field="' + name + '"]');
+                if (field) field.classList.toggle('has-error', !!on);
+            }
+
+            function validEmail(v) {
+                return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
+            }
+
+            form.addEventListener('submit', function (e) {
+                e.preventDefault();
+                const name = form.name.value.trim();
+                const email = form.email.value.trim();
+                const org = form.org.value.trim();
+                const message = form.message.value.trim();
+
+                let ok = true;
+                setError('name', !name);
+                setError('email', !email || !validEmail(email));
+                setError('message', !message);
+                if (!name || !email || !validEmail(email) || !message) ok = false;
+                if (!ok) return;
+
+                const subject = encodeURIComponent('Inarius Dynamics inquiry' + (org ? ' — ' + org : ''));
+                const body = encodeURIComponent(
+                    'Name: ' + name + '\n' +
+                    'Email: ' + email + '\n' +
+                    (org ? 'Organization: ' + org + '\n' : '') +
+                    '\n' + message
+                );
+                window.location.href = 'mailto:' + CONTACT_EMAIL + '?subject=' + subject + '&body=' + body;
+
+                form.classList.add('is-hidden');
+                success.classList.add('is-visible');
+            });
+
+            console.log('🚑 Inarius Dynamics — Contact page loaded.');
+        })();
+    </script>
+</body>
+</html>

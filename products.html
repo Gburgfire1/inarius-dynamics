@@ -3,21 +3,50 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Inarius Dynamics products: OmniApp / OmniHealth and OmniPD — offline-first, Edge AI iPadOS apps for fire, EMS, and investigation." />
     <title>Products · Inarius Dynamics</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;600;700;800&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="site.css" />
     <style>
+        /* ===== ICON BADGES ===== */
+        .icon-badge {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            font-size: 0.68rem;
+            font-weight: 700;
+            letter-spacing: 0.6px;
+            color: #88ddff;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+            background:
+                linear-gradient(145deg, rgba(8, 16, 28, 0.95), rgba(12, 22, 38, 0.9)) padding-box,
+                linear-gradient(135deg, #00d4ff, #0088ff) border-box;
+            border: 1.5px solid transparent;
+            box-shadow: 0 0 16px rgba(0, 180, 255, 0.12);
+        }
+        .icon-badge.circle {
+            border-radius: 50%;
+        }
+
         /* ===== PRODUCT SECTION ===== */
         .product-section {
-            margin: 60px 0 80px 0;
+            margin: 72px 0 88px 0;
+        }
+        .product-section + .product-divider + .product-section {
+            margin-top: 0;
         }
         .product-header {
             display: flex;
             align-items: center;
-            gap: 16px;
-            margin-bottom: 8px;
+            gap: 14px;
+            margin-bottom: 10px;
+            flex-wrap: wrap;
         }
         .product-header .badge {
             background: rgba(0, 200, 255, 0.15);
@@ -29,6 +58,26 @@
             letter-spacing: 1px;
             color: #88ddff;
             border: 1px solid rgba(0, 200, 255, 0.15);
+        }
+        .product-kicker {
+            display: inline-flex;
+            align-items: baseline;
+            gap: 8px;
+        }
+        .product-name {
+            color: #00d4ff;
+            font-weight: 700;
+            font-size: 1.05rem;
+            letter-spacing: -0.2px;
+        }
+        .product-sep {
+            color: #5a6f85;
+            font-weight: 400;
+        }
+        .product-subtitle {
+            color: #5a6f85;
+            font-weight: 400;
+            font-size: 0.9rem;
         }
         .product-section h2 {
             font-size: 2.4rem;
@@ -48,6 +97,20 @@
             line-height: 1.7;
         }
 
+        /* Thin divider between products */
+        .product-divider {
+            height: 1px;
+            border: none;
+            margin: 0;
+            background: linear-gradient(
+                90deg,
+                transparent 0%,
+                rgba(0, 180, 255, 0.22) 20%,
+                rgba(0, 180, 255, 0.22) 80%,
+                transparent 100%
+            );
+        }
+
         /* ===== MODULE GRID (Bento) ===== */
         .module-grid {
             display: grid;
@@ -60,17 +123,13 @@
             border: 1px solid rgba(255, 255, 255, 0.04);
             border-radius: 20px;
             background: rgba(255, 255, 255, 0.02);
-            transition: all 0.3s ease;
+            transition: background 0.3s ease, border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
         }
         .module-card:hover {
             background: rgba(255, 255, 255, 0.06);
-            border-color: rgba(0, 180, 255, 0.15);
+            border-color: rgba(0, 180, 255, 0.22);
             transform: translateY(-4px);
-        }
-        .module-card .icon {
-            font-size: 2rem;
-            display: block;
-            margin-bottom: 10px;
+            box-shadow: 0 12px 28px rgba(0, 100, 255, 0.12);
         }
         .module-card h4 {
             font-size: 1rem;
@@ -92,7 +151,7 @@
 
         /* ===== SHARED ARCHITECTURE ===== */
         .shared-arch {
-            margin: 60px 0 80px 0;
+            margin: 72px 0 88px 0;
             padding: 48px 40px;
             background: linear-gradient(145deg, rgba(0, 100, 255, 0.06), rgba(0, 0, 0, 0.2));
             border: 1px solid rgba(0, 180, 255, 0.08);
@@ -124,11 +183,16 @@
             border-radius: 16px;
             border: 1px solid rgba(255, 255, 255, 0.04);
             text-align: center;
+            transition: border-color 0.3s ease, background 0.3s ease;
         }
-        .arch-item .icon {
-            font-size: 1.8rem;
-            display: block;
-            margin-bottom: 6px;
+        .arch-item:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(0, 180, 255, 0.15);
+        }
+        .arch-item .icon-badge {
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 10px;
         }
         .arch-item h4 {
             font-size: 0.95rem;
@@ -139,6 +203,30 @@
             font-size: 0.8rem;
             color: #9aafc7;
             margin-top: 4px;
+        }
+
+        /* ===== CTA BAND ===== */
+        .cta-band {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 24px;
+            padding: 40px 36px;
+            margin: 20px 0 80px 0;
+            flex-wrap: wrap;
+            background: linear-gradient(145deg, rgba(0, 100, 255, 0.06), rgba(0, 0, 0, 0.2));
+            border: 1px solid rgba(0, 180, 255, 0.08);
+            border-radius: 20px;
+        }
+        .cta-band h2 {
+            font-size: 1.7rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+        .cta-band p {
+            color: #9aafc7;
+            margin-top: 6px;
+            max-width: 520px;
         }
 
         @media (max-width: 1024px) {
@@ -166,6 +254,13 @@
             .product-section h2 {
                 font-size: 1.8rem;
             }
+            .cta-band {
+                padding: 28px 20px;
+            }
+            .btn-primary {
+                width: 100%;
+                text-align: center;
+            }
         }
     </style>
 </head>
@@ -182,8 +277,7 @@
         <section class="page-hero reveal">
             <h1>Built for the <span class="highlight">frontline.</span><br />Powered by <span class="highlight">Edge AI.</span></h1>
             <p>
-                Two native iPadOS applications purpose-built for fire, EMS, and investigation.
-                Offline-first, LiDAR-enabled, and driven by on-device intelligence.
+                Two native iPadOS apps for fire, EMS, and investigation — offline-first, LiDAR-enabled, driven by on-device intelligence.
             </p>
         </section>
 
@@ -194,9 +288,11 @@
         <section class="product-section reveal">
             <div class="product-header">
                 <span class="badge">Product</span>
-                <span style="color:#00d4ff; font-weight:700;">OmniApp</span>
-                <span style="color:#5a6f85;">/</span>
-                <span style="color:#00d4ff; font-weight:700;">OmniHealth</span>
+                <span class="product-kicker">
+                    <span class="product-name">OmniApp</span>
+                    <span class="product-sep">/</span>
+                    <span class="product-name">OmniHealth</span>
+                </span>
             </div>
             <h2>Clinical Documentation &amp; Fire Investigation Suite</h2>
             <p class="tagline">Zero-latency field operations. On-device AI. Full NEMSIS 3.5 / NERIS compliance.</p>
@@ -209,42 +305,44 @@
             <!-- Module Grid -->
             <div class="module-grid">
                 <div class="module-card glass colspan-2">
-                    <span class="icon">🧠</span>
+                    <span class="icon-badge" aria-hidden="true">AI</span>
                     <h4>Edge AI Orchestrator</h4>
                     <p>Qwen 2.5 (LLM) + MedGemma (VLM) + WhisperKit running concurrently on Apple Unified Memory via MLX / Metal. KV cache serialization for near‑zero TTFT.</p>
                 </div>
                 <div class="module-card glass">
-                    <span class="icon">📐</span>
+                    <span class="icon-badge" aria-hidden="true">AR</span>
                     <h4>AR Scene Scanner</h4>
                     <p>RoomPlan API generates 2D floor plans and 3D structural meshes. Hybrid Sketchpad overlays Apple Pencil PKCanvasView for burn‑pattern mapping.</p>
                 </div>
                 <div class="module-card glass">
-                    <span class="icon">📦</span>
+                    <span class="icon-badge" aria-hidden="true">3D</span>
                     <h4>3D Evidence Capture</h4>
                     <p>ObjectCaptureSession photogrammetry produces interactive .usdz models. NFC / QR chain‑of‑custody ties evidence cryptographically to AR anchors.</p>
                 </div>
                 <div class="module-card glass">
-                    <span class="icon">🏗️</span>
+                    <span class="icon-badge" aria-hidden="true">AR</span>
                     <h4>AR Pre‑Planning</h4>
                     <p>Tap‑to‑tag NFPA/ICS symbology (FDC, Knox Box, FACP) onto RoomPlan meshes. ICS Command Handoff exports spatial anchors to the command board.</p>
                 </div>
                 <div class="module-card glass">
-                    <span class="icon">📡</span>
+                    <span class="icon-badge" aria-hidden="true">BT</span>
                     <h4>Bluetooth 6.0 &amp; P25 Bridge</h4>
                     <p>Channel Sounding for cm‑accurate crew ranging. Graph SLAM delivers directional MAYDAY vectoring. Direct integration with Motorola APX radios.</p>
                 </div>
                 <div class="module-card glass">
-                    <span class="icon">🗺️</span>
+                    <span class="icon-badge" aria-hidden="true">GIS</span>
                     <h4>ArcGIS &amp; Spatial Bridge</h4>
                     <p>Embedded Esri maps with offline .geodatabase layers. Georeferences RoomPlan coordinates to global GPS, publishing scans as spatial feature overlays.</p>
                 </div>
                 <div class="module-card glass colspan-2">
-                    <span class="icon">📋</span>
+                    <span class="icon-badge" aria-hidden="true">NEM</span>
                     <h4>NEMSIS 3.5 / NERIS Auto‑Scribe</h4>
                     <p>Qwen 2.5 ingests WhisperKit transcripts, MedGemma visual evaluations, and weather back‑cast data to draft compliant "Origin &amp; Cause" narratives. Validates against state datasets (e.g., Maryland MIEMSS).</p>
                 </div>
             </div>
         </section>
+
+        <hr class="product-divider" />
 
         <!-- ============================================================ -->
         <!-- PRODUCT 2: OmniPD                                             -->
@@ -253,8 +351,8 @@
         <section class="product-section reveal">
             <div class="product-header">
                 <span class="badge">Product</span>
-                <span style="color:#00d4ff; font-weight:700;">OmniPD</span>
-                <span style="color:#5a6f85; font-weight:400; font-size:0.9rem;">Tactical Incident Reporting</span>
+                <span class="product-name">OmniPD</span>
+                <span class="product-subtitle">Tactical Incident Reporting</span>
             </div>
             <h2>Command &amp; Reporting for First Responders</h2>
             <p class="tagline">Offline‑first, Swift‑native, optimized for M‑series iPad Pro.</p>
@@ -266,37 +364,37 @@
             <!-- Module Grid -->
             <div class="module-grid">
                 <div class="module-card glass colspan-2">
-                    <span class="icon">🎙️</span>
+                    <span class="icon-badge" aria-hidden="true">AI</span>
                     <h4>AI Speech &amp; CAD Pipeline</h4>
                     <p>Qwen 2.5 7B (4‑bit MLX) summarizes raw CAD notes into 2‑sentence briefings. WhisperKit v3 Turbo runs on the Neural Engine for low‑latency field dictation.</p>
                 </div>
                 <div class="module-card glass">
-                    <span class="icon">📄</span>
+                    <span class="icon-badge" aria-hidden="true">OCR</span>
                     <h4>VisionKit OCR</h4>
                     <p>On‑device scanning of driver's licenses, IDs, and HazMat manifests. Clean strings passed directly to Qwen for parsing.</p>
                 </div>
                 <div class="module-card glass">
-                    <span class="icon">🏛️</span>
+                    <span class="icon-badge" aria-hidden="true">3D</span>
                     <h4>LiDAR Pre‑Planner</h4>
                     <p>RoomCaptureView captures 3D building spaces. Exports .usdz models and JSON paired with GPS / heading metadata.</p>
                 </div>
                 <div class="module-card glass">
-                    <span class="icon">🥽</span>
+                    <span class="icon-badge" aria-hidden="true">AR</span>
                     <h4>RealityKit Dual‑Mode AR</h4>
                     <p>1:50 scale tabletop dollhouse mode anchored to command vehicle surfaces, or 1:1 real‑world walkthrough mode.</p>
                 </div>
                 <div class="module-card glass">
-                    <span class="icon">🗺️</span>
+                    <span class="icon-badge" aria-hidden="true">GIS</span>
                     <h4>ArcGIS Integration</h4>
                     <p>Dark vector basemaps with active CAD call markers. 3D building pre‑plan overlays placed directly onto GIS locations.</p>
                 </div>
                 <div class="module-card glass">
-                    <span class="icon">🔥</span>
+                    <span class="icon-badge" aria-hidden="true">THM</span>
                     <h4>Thermal &amp; Memory Optimizations</h4>
                     <p>Adaptive throttling steps down ARKit polling and caps token output during .serious thermal states. GRDB with WAL + mmap reads HazMat tables directly from disk.</p>
                 </div>
                 <div class="module-card glass colspan-2">
-                    <span class="icon">📱</span>
+                    <span class="icon-badge" aria-hidden="true">UI</span>
                     <h4>Bento UI / UX</h4>
                     <p>Asymmetric SwiftUI grid with 6×2 hero tile for live briefings. Compact ShotSpotter banner with swipe‑to‑dismiss. Streamlined Action Deck consolidating camera, interpreter, and evidence tools.</p>
                 </div>
@@ -308,44 +406,53 @@
         <!-- ============================================================ -->
 
         <section class="shared-arch reveal glass">
-            <h2>⚙️ Shared <span>Architecture</span></h2>
+            <h2>Shared <span>Architecture</span></h2>
             <p class="sub">
                 Both applications share a common foundation of on‑device AI, spatial intelligence, and
                 enterprise‑grade compliance. Everything runs locally — no cloud required.
             </p>
             <div class="arch-grid">
                 <div class="arch-item">
-                    <span class="icon">🧠</span>
+                    <span class="icon-badge circle" aria-hidden="true">AI</span>
                     <h4>MLX Edge AI</h4>
                     <p>Qwen 2.5, MedGemma, WhisperKit — all on‑device via Metal / Neural Engine.</p>
                 </div>
                 <div class="arch-item">
-                    <span class="icon">🔒</span>
+                    <span class="icon-badge circle" aria-hidden="true">OFF</span>
                     <h4>Offline‑First</h4>
                     <p>Zero dependence on cellular or Wi‑Fi. Full functionality in dead zones.</p>
                 </div>
                 <div class="arch-item">
-                    <span class="icon">📡</span>
+                    <span class="icon-badge circle" aria-hidden="true">AR</span>
                     <h4>LiDAR + ARKit</h4>
                     <p>RoomPlan, ObjectCapture, ARWorldMap — spatial intelligence baked in.</p>
                 </div>
                 <div class="arch-item">
-                    <span class="icon">🌡️</span>
+                    <span class="icon-badge circle" aria-hidden="true">THM</span>
                     <h4>Thermal Management</h4>
                     <p>Adaptive throttling keeps displays bright in vehicle mounts and high‑heat environments.</p>
                 </div>
                 <div class="arch-item">
-                    <span class="icon">📋</span>
+                    <span class="icon-badge circle" aria-hidden="true">NEM</span>
                     <h4>NEMSIS / NERIS</h4>
                     <p>Fully validated schema output for state reporting (MIEMSS / eMEDS / ImageTrend).</p>
                 </div>
                 <div class="arch-item">
-                    <span class="icon">⚡</span>
+                    <span class="icon-badge circle" aria-hidden="true">ZC</span>
                     <h4>Zero‑Copy Memory</h4>
                     <p>IOSurface → MLXArray direct mapping. No CPU‑to‑GPU RAM duplication.</p>
                 </div>
             </div>
         </section>
+
+        <!-- ===== CTA BAND ===== -->
+        <div class="cta-band glass reveal">
+            <div>
+                <h2>Ready to equip your agency?</h2>
+                <p>Demos, pilots, and procurement conversations start here — talk with us about OmniApp / OmniHealth and OmniPD.</p>
+            </div>
+            <a class="btn-primary" href="/contact.html">Contact us</a>
+        </div>
 
         <div id="site-footer"></div>
 
@@ -353,7 +460,7 @@
 
     <script src="site.js" defer></script>
     <script>
-        console.log('🚑 Inarius Dynamics — Products page loaded.');
+        console.log('Inarius Dynamics — Products page loaded.');
     </script>
 
 </body>

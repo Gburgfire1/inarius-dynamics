@@ -11,11 +11,31 @@
         <style>
         /* ===== INDEX LANDING (page-specific) ===== */
         .hero-wrapper {
+            position: relative;
             display: flex;
             flex-direction: column;
             justify-content: center;
             min-height: 100vh;
             padding: 40px 0 60px 0;
+            /* full-bleed breakout from .container */
+            width: 100vw;
+            margin-left: calc(50% - 50vw);
+            margin-right: calc(50% - 50vw);
+            padding-left: max(30px, calc((100vw - 1280px) / 2 + 30px));
+            padding-right: max(30px, calc((100vw - 1280px) / 2 + 30px));
+            box-sizing: border-box;
+            background-image:
+                linear-gradient(105deg, rgba(8, 12, 20, 0.94) 0%, rgba(8, 12, 20, 0.82) 42%, rgba(8, 12, 20, 0.55) 70%, rgba(8, 12, 20, 0.72) 100%),
+                linear-gradient(180deg, rgba(8, 12, 20, 0.25) 0%, rgba(8, 12, 20, 0.9) 100%),
+                url("hero-ems-tablet.png");
+            background-size: cover;
+            background-position: center right;
+            background-repeat: no-repeat;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+        }
+        .hero-wrapper .hero-grid {
+            position: relative;
+            z-index: 1;
         }
         .hero-grid {
             display: grid;
@@ -44,10 +64,11 @@
         }
         .hero p {
             font-size: 1.2rem;
-            color: #a0b3cc;
+            color: #c5d4e8;
             max-width: 560px;
             margin-bottom: 36px;
             font-weight: 400;
+            text-shadow: 0 1px 18px rgba(0, 0, 0, 0.45);
         }
         .cta-group {
             display: flex;
@@ -175,6 +196,70 @@
             transform-style: preserve-3d;
             perspective: 1000px;
         }
+
+        /* ===== THREE PRODUCTS ===== */
+        .products-teaser {
+            margin: 48px 0 24px 0;
+        }
+        .products-teaser .section-title {
+            margin-top: 40px;
+            margin-bottom: 12px;
+        }
+        .products-teaser .section-sub {
+            margin-bottom: 28px;
+        }
+        .product-teaser-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+        a.product-teaser-card {
+            display: block;
+            padding: 28px 24px;
+            text-decoration: none;
+            color: inherit;
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            transition: background 0.3s ease, border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        a.product-teaser-card:hover {
+            background: rgba(255, 255, 255, 0.06);
+            border-color: rgba(0, 180, 255, 0.22);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 28px rgba(0, 100, 255, 0.12);
+        }
+        .product-teaser-card .icon-badge {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            font-size: 0.68rem;
+            font-weight: 700;
+            letter-spacing: 0.6px;
+            color: #88ddff;
+            text-transform: uppercase;
+            margin-bottom: 14px;
+            background:
+                linear-gradient(145deg, rgba(8, 16, 28, 0.95), rgba(12, 22, 38, 0.9)) padding-box,
+                linear-gradient(135deg, #00d4ff, #0088ff) border-box;
+            border: 1.5px solid transparent;
+            box-shadow: 0 0 16px rgba(0, 180, 255, 0.12);
+        }
+        .product-teaser-card h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #00d4ff;
+            margin-bottom: 8px;
+            letter-spacing: -0.3px;
+        }
+        .product-teaser-card p {
+            font-size: 0.95rem;
+            color: #9aafc7;
+            line-height: 1.5;
+            margin: 0;
+        }
         @media (max-width: 1024px) {
             .hero-grid {
                 grid-template-columns: 1fr;
@@ -183,6 +268,7 @@
             .hero h1 { font-size: 2.8rem; }
             .bento-grid { grid-template-columns: 1fr 1fr; }
             .bento-item.colspan-2 { grid-column: span 1; }
+            .product-teaser-grid { grid-template-columns: 1fr; }
             .hero-wrapper {
                 min-height: auto;
                 padding: 20px 0;
@@ -232,8 +318,8 @@
                         Focus on your patient, not the paperwork.
                     </p>
                     <div class="cta-group">
-                        <a href="#" class="btn-primary">Partner with Us</a>
-                        <a href="#" class="btn-secondary">View Roadmap →</a>
+                        <a href="/contact.html" class="btn-primary">Partner with Us</a>
+                        <a href="/products.html" class="btn-secondary">Explore Furian →</a>
                     </div>
                 </div>
 
@@ -259,10 +345,34 @@
             </div>
         </section>
 
+
+        <!-- THREE PRODUCTS -->
+        <section class="products-teaser reveal" aria-label="Furian products">
+            <h2 class="section-title">Three <span style="color:#00d4ff;">products</span></h2>
+            <p class="section-sub">The Furian suite — Edge AI for pre-hospital, EMS, and police department deployments.</p>
+            <div class="product-teaser-grid">
+                <a class="product-teaser-card glass" href="/products.html#furians">
+                    <span class="icon-badge" aria-hidden="true">ES</span>
+                    <h3>FurianES</h3>
+                    <p>Complete pre-hospital system combining Fire and EMS.</p>
+                </a>
+                <a class="product-teaser-card glass" href="/products.html#furianems">
+                    <span class="icon-badge" aria-hidden="true">EMS</span>
+                    <h3>FurianEMS</h3>
+                    <p>EMS applications.</p>
+                </a>
+                <a class="product-teaser-card glass" href="/products.html#furianpd">
+                    <span class="icon-badge" aria-hidden="true">PD</span>
+                    <h3>FurianPD</h3>
+                    <p>Police department deployment.</p>
+                </a>
+            </div>
+        </section>
+
         <!-- BENTO FEATURES -->
         <h2 class="section-title reveal">Built to <span style="color:#00d4ff;">reduce friction</span> and restore focus</h2>
         <p class="section-sub reveal">
-            From AI-driven charting assistance to unified hardware ecosystems—everything we build fights fragmentation and cognitive load.
+            From AI-driven charting assistance to the Furian product suite and hardware ecosystems—everything we build fights fragmentation and cognitive load.
         </p>
 
         <div class="bento-grid">
@@ -273,8 +383,8 @@
             </div>
             <div class="bento-item glass reveal tilt-3d">
                 <span class="icon">📱</span>
-                <h3>Unified App Suite</h3>
-                <p>From ePCR to dispatch sync—intuitive, fast, and built for gloved hands in the back of a rig. Minimal clicks, maximum clarity.</p>
+                <h3>Furian App Suite</h3>
+                <p>FurianES, FurianEMS, and FurianPD — from ePCR to dispatch sync, intuitive and built for gloved hands in the back of a rig. Minimal clicks, maximum clarity.</p>
             </div>
             <div class="bento-item glass reveal tilt-3d">
                 <span class="icon">🔄</span>

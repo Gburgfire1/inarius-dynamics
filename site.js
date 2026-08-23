@@ -40,7 +40,7 @@
             '<footer>\n' +
             '            <div>© 2026 Inarius Dynamics — Built for the people who run toward the sirens.</div>\n' +
             '            <div>\n' +
-            '                <a href="#">Privacy</a> ·\n' +
+            '                <a href="/privacy.html">Privacy</a> ·\n' +
             '                <a href="/contact.html">Contact</a> ·\n' +
             '                <a href="#">Careers</a>\n' +
             '            </div>\n' +

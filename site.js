@@ -40,7 +40,7 @@
             '<footer>\n' +
             '            <div class="footer-left">\n' +
             '                <div>© 2026 Inarius Dynamics. Built for the people who run toward the sirens.</div>\n' +
-            '                <div class="tm-note">Furian™, FurianES™, FurianEMS™, and FurianPD™ are trademarks of Inarius Dynamics.</div>\n' +
+            '                <div class="tm-note">Furian® is a registered trademark of Inarius Dynamics. FurianES™, FurianEMS™, and FurianPD™ are trademarks of Inarius Dynamics.</div>\n' +
             '            </div>\n' +
             '            <div>\n' +
             '                <a href="/privacy.html">Privacy</a> ·\n' +

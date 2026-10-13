@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Request a ShopLine demo · Inarius Dynamics</title>
+    <meta name="description" content="Request a ShopLine demo for your auto repair shop. Tell us how calls are handled today and when to reach you." />
+    <link rel="canonical" href="https://www.inariusdynamics.com/demo" />
+    <meta name="theme-color" content="#070b12" />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Inarius Dynamics" />
+    <meta property="og:title" content="Request a ShopLine demo · Inarius Dynamics" />
+    <meta property="og:description" content="Request a ShopLine demo for your auto repair shop. Tell us how calls are handled today and when to reach you." />
+    <meta property="og:url" content="https://www.inariusdynamics.com/demo" />
+    <meta property="og:image" content="https://www.inariusdynamics.com/og-image.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Request a ShopLine demo · Inarius Dynamics" />
+    <meta name="twitter:description" content="Request a ShopLine demo for your auto repair shop. Tell us how calls are handled today and when to reach you." />
+    <meta name="twitter:image" content="https://www.inariusdynamics.com/og-image.jpg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/site.css" />
+</head>
+<body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header">
+        <div class="nav-inner">
+            <a class="logo" href="/">
+                <img src="/Inarius_logo.png" alt="" width="42" height="42" />
+                <span class="logo-text">Inarius <span>Dynamics</span></span>
+            </a>
+            <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+                <span class="nav-toggle-bars" aria-hidden="true"></span>
+                <span class="sr-only">Open menu</span>
+            </button>
+            <nav id="site-nav" class="nav-links" aria-label="Primary">
+                <a href="/">Home</a>
+                <a href="/products.html">Solutions</a>
+                <a href="/about.html">About</a>
+                <a href="/contact.html">Contact</a>
+                <a class="nav-cta" href="/demo" aria-current="page">Request a ShopLine demo</a>
+            </nav>
+        </div>
+    </header>
+
+    <main id="main">
+        <div class="container">
+            <section class="page-hero">
+                <p class="eyebrow">ShopLine</p>
+                <h1>Request a ShopLine demo.</h1>
+                <p>
+                    For independent auto repair shops. Tell us how the phone works today and when to reach you. We’ll walk through answering, booking, messages, and the shop dashboard.
+                </p>
+            </section>
+
+            <div class="contact-grid">
+                <div class="panel">
+                    <div id="form-panel">
+                        <h2>Shop details</h2>
+                        <p class="sub">We use this to schedule the demo. Nothing is sent until you press the button.</p>
+                        <form id="demo-form" novalidate>
+                            <div class="hp-field" aria-hidden="true">
+                                <label for="company_website">Company website</label>
+                                <input id="company_website" name="company_website" type="text" tabindex="-1" autocomplete="off" />
+                            </div>
+                            <div class="form-row">
+                                <div class="field" data-field="name">
+                                    <label for="name">Your name</label>
+                                    <input id="name" name="name" type="text" autocomplete="name" required placeholder="Your name" />
+                                    <div class="error">Enter your name.</div>
+                                </div>
+                                <div class="field" data-field="shop">
+                                    <label for="shop">Shop name</label>
+                                    <input id="shop" name="shop" type="text" autocomplete="organization" required placeholder="Shop name" />
+                                    <div class="error">Enter the shop name.</div>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="field" data-field="email">
+                                    <label for="email">Email</label>
+                                    <input id="email" name="email" type="email" autocomplete="email" required placeholder="you@shop.com" />
+                                    <div class="error">Enter a valid email.</div>
+                                </div>
+                                <div class="field" data-field="phone">
+                                    <label for="phone">Phone</label>
+                                    <input id="phone" name="phone" type="tel" autocomplete="tel" required inputmode="tel" placeholder="(555) 555-0100" />
+                                    <div class="error">Enter a phone number with at least 10 digits.</div>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="field" data-field="location">
+                                    <label for="location">City and state</label>
+                                    <input id="location" name="location" type="text" autocomplete="address-level2" required placeholder="City, ST" />
+                                    <div class="error">Enter the city and state.</div>
+                                </div>
+                                <div class="field" data-field="time">
+                                    <label for="time">Preferred contact time</label>
+                                    <input id="time" name="time" type="text" required placeholder="Weekday mornings, or after 4 p.m." />
+                                    <div class="error">Enter a preferred contact time.</div>
+                                </div>
+                            </div>
+                            <div class="field" data-field="volume">
+                                <label for="volume">Calls today <span class="optional">(optional)</span></label>
+                                <textarea id="volume" name="volume" placeholder="Rough monthly call volume, or how the shop handles the phone now."></textarea>
+                            </div>
+                            <div class="field" data-field="notes">
+                                <label for="notes">Notes <span class="optional">(optional)</span></label>
+                                <textarea id="notes" name="notes" placeholder="Anything we should know before the demo."></textarea>
+                            </div>
+                            <p class="form-error" id="form-error" role="alert"></p>
+                            <button type="submit" class="btn btn-primary" id="submit-btn">Request a ShopLine demo</button>
+                            <p class="form-note">We’ll reply at the email you enter. For other work, use the <a href="/contact.html">contact page</a>.</p>
+                        </form>
+                    </div>
+                    <div class="success-state" id="success-sent" aria-live="polite">
+                        <h3>Request sent</h3>
+                        <p class="sub">We’ll reply at the email you entered.</p>
+                    </div>
+                    <div class="success-state" id="success-mailto" aria-live="polite">
+                        <h3>One more step</h3>
+                        <p class="sub">Your email app should open with this request ready. Send that message and we’ll take it from there.</p>
+                    </div>
+                    <noscript>
+                        <p class="sub">This form needs JavaScript. Email <a href="mailto:nbstefany87@gmail.com?subject=ShopLine%20demo%20request">nbstefany87@gmail.com</a> with your name, shop, phone, city and state, and a time to talk.</p>
+                    </noscript>
+                </div>
+
+                <div class="side-stack">
+                    <article class="info-card panel">
+                        <h3>What the demo covers</h3>
+                        <p>How ShopLine answers a forwarded shop line, books from the shop’s hours, takes a message, and can transfer to a person.</p>
+                    </article>
+                    <article class="info-card panel">
+                        <h3>What the shop controls</h3>
+                        <p>Hours, services, approved price ranges, and the answers the assistant is allowed to give. It does not take card numbers.</p>
+                    </article>
+                    <article class="info-card panel">
+                        <h3>Not a shop phone?</h3>
+                        <p>Custom applications and other work still start on the <a href="/contact.html">contact page</a>.</p>
+                    </article>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <p>© 2026 Inarius Dynamics. Custom AI applications for growing businesses.</p>
+            <div class="footer-links">
+                <a href="/demo">ShopLine demo</a>
+                <a href="/privacy.html">Privacy</a>
+                <a href="/contact.html">Contact</a>
+                <a href="/careers.html">Careers</a>
+            </div>
+        </div>
+    </footer>
+    <script src="/site.js" defer></script>
+    <script>
+        (function () {
+            var DEMO_EMAIL = 'nbstefany87@gmail.com';
+            var form = document.getElementById('demo-form');
+            var submitBtn = document.getElementById('submit-btn');
+            var formError = document.getElementById('form-error');
+
+            function setError(name, on) {
+                var field = form.querySelector('[data-field="' + name + '"]');
+                if (field) field.classList.toggle('has-error', !!on);
+            }
+
+            function validEmail(value) {
+                return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+            }
+
+            function digits(value) {
+                return value.replace(/\D/g, '');
+            }
+
+            function values() {
+                return {
+                    name: form.name.value.trim(),
+                    shop: form.shop.value.trim(),
+                    email: form.email.value.trim(),
+                    phone: form.phone.value.trim(),
+                    location: form.location.value.trim(),
+                    volume: form.volume.value.trim(),
+                    time: form.time.value.trim(),
+                    notes: form.notes.value.trim(),
+                    company_website: form.company_website.value.trim()
+                };
+            }
+
+            function validate(fields) {
+                var ok = true;
+                var checks = {
+                    name: !fields.name,
+                    shop: !fields.shop,
+                    email: !fields.email || !validEmail(fields.email),
+                    phone: digits(fields.phone).length < 10 || digits(fields.phone).length > 15,
+                    location: !fields.location,
+                    time: !fields.time
+                };
+                Object.keys(checks).forEach(function (key) {
+                    setError(key, checks[key]);
+                    if (checks[key]) ok = false;
+                });
+                return ok;
+            }
+
+            function showSuccess(id) {
+                form.classList.add('is-hidden');
+                document.getElementById(id).classList.add('is-visible');
+            }
+
+            function openMailto(fields) {
+                var notes = fields.notes;
+                var body = [
+                    'Name: ' + fields.name,
+                    'Shop: ' + fields.shop,
+                    'Email: ' + fields.email,
+                    'Phone: ' + fields.phone,
+                    'City / state: ' + fields.location,
+                    'Calls today: ' + (fields.volume || '(not provided)'),
+                    'Preferred contact time: ' + fields.time,
+                    '',
+                    'Notes:',
+                    notes || '(none)'
+                ].join('\n');
+                var href = 'mailto:' + DEMO_EMAIL +
+                    '?subject=' + encodeURIComponent('ShopLine demo request — ' + fields.shop) +
+                    '&body=' + encodeURIComponent(body);
+                if (href.length > 1800) {
+                    body = body.slice(0, 1200) + '\n\n[Message shortened. The full note is in the form you already filled in.]';
+                    href = 'mailto:' + DEMO_EMAIL +
+                        '?subject=' + encodeURIComponent('ShopLine demo request — ' + fields.shop) +
+                        '&body=' + encodeURIComponent(body);
+                }
+                window.location.href = href;
+            }
+
+            form.addEventListener('submit', function (event) {
+                event.preventDefault();
+                formError.textContent = '';
+                var fields = values();
+                if (!validate(fields)) return;
+
+                if (fields.company_website) {
+                    showSuccess('success-sent');
+                    return;
+                }
+
+                submitBtn.disabled = true;
+                submitBtn.textContent = 'Sending…';
+
+                fetch('/api/demo', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(fields)
+                }).then(function (response) {
+                    return response.json().then(function (payload) {
+                        return { status: response.status, payload: payload || {} };
+                    }).catch(function () {
+                        return { status: response.status, payload: {} };
+                    });
+                }).then(function (result) {
+                    if (result.status === 200 && result.payload.ok) {
+                        showSuccess('success-sent');
+                        return;
+                    }
+                    if (result.status === 400 && result.payload.errors) {
+                        Object.keys(result.payload.errors).forEach(function (key) {
+                            setError(key, true);
+                        });
+                        submitBtn.disabled = false;
+                        submitBtn.textContent = 'Request a ShopLine demo';
+                        return;
+                    }
+                    openMailto(fields);
+                    showSuccess('success-mailto');
+                }).catch(function () {
+                    openMailto(fields);
+                    showSuccess('success-mailto');
+                });
+            });
+        })();
+    </script>
+</body>
+</html>

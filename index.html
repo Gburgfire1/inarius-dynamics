@@ -1,500 +1,220 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Furian · State of the Art Intelligent Software for Responders</title>
-    <meta name="description" content="Furian by Inarius Dynamics: state of the art intelligent software for EMS, fire, and police responders. Offline-first with powerful on-device AI included." />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Inarius Dynamics · Custom AI applications for growing businesses</title>
+    <meta name="description" content="Inarius Dynamics builds custom AI applications that help businesses save time, cut costs, and grow. ShopLine answers and books calls for auto repair shops." />
     <link rel="canonical" href="https://www.inariusdynamics.com/" />
+    <meta name="theme-color" content="#070b12" />
     <link rel="icon" href="/favicon.ico" sizes="any" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Inarius Dynamics" />
-    <meta property="og:title" content="Furian · State of the Art Intelligent Software for Responders" />
-    <meta property="og:description" content="Furian by Inarius Dynamics: state of the art intelligent software for EMS, fire, and police responders. Offline-first with powerful on-device AI included." />
+    <meta property="og:title" content="Inarius Dynamics · Custom AI applications for growing businesses" />
+    <meta property="og:description" content="Inarius Dynamics builds custom AI applications that help businesses save time, cut costs, and grow. ShopLine answers and books calls for auto repair shops." />
     <meta property="og:url" content="https://www.inariusdynamics.com/" />
     <meta property="og:image" content="https://www.inariusdynamics.com/og-image.jpg" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Furian · State of the Art Intelligent Software for Responders" />
-    <meta name="twitter:description" content="Furian by Inarius Dynamics: state of the art intelligent software for EMS, fire, and police responders. Offline-first with powerful on-device AI included." />
+    <meta name="twitter:title" content="Inarius Dynamics · Custom AI applications for growing businesses" />
+    <meta name="twitter:description" content="Inarius Dynamics builds custom AI applications that help businesses save time, cut costs, and grow. ShopLine answers and books calls for auto repair shops." />
     <meta name="twitter:image" content="https://www.inariusdynamics.com/og-image.jpg" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="site.css" />
-        <style>
-        /* ===== INDEX LANDING (page-specific) ===== */
-        .hero-wrapper {
-            position: relative;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            min-height: 100vh;
-            padding: 40px 0 60px 0;
-            /* full-bleed breakout from .container */
-            width: 100vw;
-            margin-left: calc(50% - 50vw);
-            margin-right: calc(50% - 50vw);
-            padding-left: max(30px, calc((100vw - 1280px) / 2 + 30px));
-            padding-right: max(30px, calc((100vw - 1280px) / 2 + 30px));
-            box-sizing: border-box;
-            background-image:
-                linear-gradient(105deg, rgba(8, 12, 20, 0.94) 0%, rgba(8, 12, 20, 0.82) 42%, rgba(8, 12, 20, 0.55) 70%, rgba(8, 12, 20, 0.72) 100%),
-                linear-gradient(180deg, rgba(8, 12, 20, 0.25) 0%, rgba(8, 12, 20, 0.9) 100%),
-                url("hero-ems-tablet.png");
-            background-size: cover;
-            background-position: center right;
-            background-repeat: no-repeat;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
-        }
-        .hero-wrapper .hero-grid {
-            position: relative;
-            z-index: 1;
-        }
-        .hero-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            align-items: center;
-            padding: 20px 0;
-        }
-        .hero h1 {
-            font-size: 3.8rem;
-            font-weight: 800;
-            line-height: 1.1;
-            letter-spacing: -2px;
-            margin-bottom: 20px;
-        }
-        .hero h1 .highlight {
-            background: linear-gradient(135deg, #00d4ff, #0088ff);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        #morphing-text {
-            display: inline-block;
-            min-height: 4.2rem;
-            transition: opacity 0.5s ease;
-        }
-        .hero p {
-            font-size: 1.2rem;
-            color: #c5d4e8;
-            max-width: 560px;
-            margin-bottom: 36px;
-            font-weight: 400;
-            text-shadow: 0 1px 18px rgba(0, 0, 0, 0.45);
-        }
-        .cta-group {
-            display: flex;
-            gap: 16px;
-            flex-wrap: wrap;
-        }
-        .btn-secondary {
-            background: rgba(255, 255, 255, 0.06);
-            border: 1px solid rgba(255, 255, 255, 0.12);
-            color: #c8d6e5;
-            padding: 16px 40px;
-            border-radius: 60px;
-            font-weight: 500;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            display: inline-block;
-        }
-        .btn-secondary:hover {
-            background: rgba(255, 255, 255, 0.12);
-        }
-        .capabilities-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 16px;
-        }
-        .cap-card {
-            padding: 24px 20px;
-            background: rgba(255, 255, 255, 0.03);
-            border-radius: 20px;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            transition: all 0.3s ease;
-            text-align: center;
-            cursor: default;
-        }
-        .cap-card:hover {
-            background: rgba(255, 255, 255, 0.07);
-            border-color: rgba(0, 180, 255, 0.15);
-        }
-        .cap-card.large { grid-column: span 2; }
-        .cap-icon {
-            font-size: 2.2rem;
-            display: block;
-            margin-bottom: 8px;
-        }
-        .cap-title {
-            font-size: 1.1rem;
-            font-weight: 700;
-            color: #e8edf5;
-        }
-        .cap-desc {
-            font-size: 0.85rem;
-            color: #9aafc7;
-            margin-top: 4px;
-            line-height: 1.4;
-        }
-        .section-title {
-            font-size: 2.4rem;
-            font-weight: 700;
-            letter-spacing: -1px;
-            margin: 80px 0 16px 0;
-        }
-        .section-sub {
-            color: #7a8da0;
-            max-width: 600px;
-            margin-bottom: 48px;
-            font-size: 1.1rem;
-        }
-        .bento-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 20px;
-            margin-bottom: 80px;
-        }
-        .bento-item {
-            padding: 32px 24px;
-            transition: all 0.4s ease;
-            cursor: default;
-            border: 1px solid rgba(255, 255, 255, 0.03);
-        }
-        .bento-item .icon {
-            font-size: 2.4rem;
-            margin-bottom: 16px;
-            display: block;
-        }
-        .bento-item h3 {
-            font-size: 1.2rem;
-            font-weight: 600;
-            margin-bottom: 10px;
-        }
-        .bento-item p {
-            color: #9aafc7;
-            font-size: 0.95rem;
-            line-height: 1.5;
-        }
-        .bento-item.colspan-2 { grid-column: span 2; }
-        .bento-item.accent-border { border-left: 3px solid #00d4ff; }
-        .hardware-tease {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 48px 40px;
-            margin: 40px 0 80px 0;
-            background: linear-gradient(145deg, rgba(0, 100, 255, 0.06), rgba(0, 0, 0, 0.2));
-            border: 1px solid rgba(0, 180, 255, 0.08);
-        }
-        .hardware-tease h2 {
-            font-size: 1.8rem;
-            font-weight: 600;
-        }
-        .hardware-tease span { color: #00d4ff; }
-        .chip-badge {
-            background: rgba(0, 200, 255, 0.1);
-            padding: 8px 24px;
-            border-radius: 40px;
-            border: 1px solid rgba(0, 200, 255, 0.2);
-            font-size: 0.8rem;
-            font-weight: 600;
-            color: #88ddff;
-        }
-        .tilt-3d {
-            transition: transform 0.1s ease, box-shadow 0.3s ease;
-            will-change: transform;
-            transform-style: preserve-3d;
-            perspective: 1000px;
-        }
-
-        /* ===== THREE PRODUCTS ===== */
-        .products-teaser {
-            margin: 48px 0 24px 0;
-        }
-        .products-teaser .section-title {
-            margin-top: 40px;
-            margin-bottom: 12px;
-        }
-        .products-teaser .section-sub {
-            margin-bottom: 28px;
-        }
-        .product-teaser-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-            margin-bottom: 40px;
-        }
-        a.product-teaser-card {
-            display: block;
-            padding: 28px 24px;
-            text-decoration: none;
-            color: inherit;
-            border: 1px solid rgba(255, 255, 255, 0.04);
-            transition: background 0.3s ease, border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        a.product-teaser-card:hover {
-            background: rgba(255, 255, 255, 0.06);
-            border-color: rgba(0, 180, 255, 0.22);
-            transform: translateY(-4px);
-            box-shadow: 0 12px 28px rgba(0, 100, 255, 0.12);
-        }
-        .product-teaser-card .icon-badge {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 44px;
-            height: 44px;
-            border-radius: 12px;
-            font-size: 0.68rem;
-            font-weight: 700;
-            letter-spacing: 0.6px;
-            color: #88ddff;
-            text-transform: uppercase;
-            margin-bottom: 14px;
-            background:
-                linear-gradient(145deg, rgba(8, 16, 28, 0.95), rgba(12, 22, 38, 0.9)) padding-box,
-                linear-gradient(135deg, #00d4ff, #0088ff) border-box;
-            border: 1.5px solid transparent;
-            box-shadow: 0 0 16px rgba(0, 180, 255, 0.12);
-        }
-        .product-teaser-card h3 {
-            font-size: 1.25rem;
-            font-weight: 700;
-            color: #00d4ff;
-            margin-bottom: 8px;
-            letter-spacing: -0.3px;
-        }
-        .product-teaser-card p {
-            font-size: 0.95rem;
-            color: #9aafc7;
-            line-height: 1.5;
-            margin: 0;
-        }
-        @media (max-width: 1024px) {
-            .hero-grid {
-                grid-template-columns: 1fr;
-                gap: 40px;
-            }
-            .hero h1 { font-size: 2.8rem; }
-            .bento-grid { grid-template-columns: 1fr 1fr; }
-            .bento-item.colspan-2 { grid-column: span 1; }
-            .product-teaser-grid { grid-template-columns: 1fr; }
-            .hero-wrapper {
-                min-height: auto;
-                padding: 20px 0;
-            }
-        }
-        @media (max-width: 640px) {
-            .hero h1 { font-size: 2.2rem; }
-            .capabilities-grid { grid-template-columns: 1fr; }
-            .cap-card.large { grid-column: span 1; }
-            .bento-grid { grid-template-columns: 1fr; }
-            .hardware-tease {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 20px;
-            }
-            .btn-primary,
-            .btn-secondary {
-                width: 100%;
-                text-align: center;
-            }
-        }
-    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/site.css" />
 </head>
-<body data-page="home">
+<body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header">
+        <div class="nav-inner">
+            <a class="logo" href="/">
+                <img src="/Inarius_logo.png" alt="" width="42" height="42" />
+                <span class="logo-text">Inarius <span>Dynamics</span></span>
+            </a>
+            <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+                <span class="nav-toggle-bars" aria-hidden="true"></span>
+                <span class="sr-only">Open menu</span>
+            </button>
+            <nav id="site-nav" class="nav-links" aria-label="Primary">
+                <a href="/" aria-current="page">Home</a>
+                <a href="/products.html">Solutions</a>
+                <a href="/about.html">About</a>
+                <a class="nav-cta" href="/contact.html">Book a conversation</a>
+            </nav>
+        </div>
+    </header>
 
-    <!-- CINEMATIC GRAIN OVERLAY -->
-    <div id="grain-overlay"></div>
-
-    <div class="container">
-
-        <div id="site-header"></div>
-
-        <!-- HERO WRAPPER -->
-        <section class="hero-wrapper">
-
-            <div class="hero-grid">
-
-                <!-- LEFT: Text -->
-                <div class="hero reveal">
-                    <h1>
-                        <span id="morphing-text" class="highlight">Intelligence at the edge.</span>
-                        <br>No internet <span class="highlight">required.</span>
-                    </h1>
-                    <p>
-                        Inarius Dynamics builds Furian: frontline software for EMS, fire, and police that works where you do.
-                        Powerful on-device AI is included, so charting, decisions, and documentation stay fast and private on your tablets and devices. Zero latency. No cloud dependency. No reliance on spotty cell or Wi-Fi.
-                        Focus on your patient, not the paperwork.
+    <main id="main">
+        <div class="container">
+            <section class="hero">
+                <div>
+                    <p class="eyebrow">Custom AI for business</p>
+                    <h1>AI applications that help businesses grow.</h1>
+                    <p class="lede">
+                        Inarius Dynamics builds custom applications and solutions for companies that want more productivity, less wasted effort, and a stronger path to profit.
                     </p>
                     <div class="cta-group">
-                        <a href="/contact.html" class="btn-primary">Partner with Us</a>
-                        <a href="/products.html" class="btn-secondary">Explore Furian →</a>
+                        <a class="btn btn-primary" href="/contact.html">Book a conversation</a>
+                        <a class="btn btn-secondary" href="#shopline">See ShopLine</a>
+                    </div>
+                    <div class="trust-row" aria-label="How we work">
+                        <span>Built around your workflow</span>
+                        <span>Rules you define</span>
+                        <span>Deployed into daily operations</span>
                     </div>
                 </div>
 
-                <!-- RIGHT: Core Capabilities -->
-                <div class="capabilities-grid reveal">
-                    <div class="cap-card glass tilt-3d">
-                        <span class="cap-icon">🧠</span>
-                        <div class="cap-title">On-Device AI</div>
-                        <div class="cap-desc">Powerful AI runs with Furian on the device. No cloud, no latency, no privacy concerns.</div>
+                <figure class="call-card" aria-label="Illustrated example of a ShopLine call">
+                    <div class="call-top">
+                        <span class="live-dot" aria-hidden="true"></span>
+                        ShopLine
+                        <span class="pill">Example</span>
                     </div>
-                    <div class="cap-card glass tilt-3d">
-                        <span class="cap-icon">📡</span>
-                        <div class="cap-title">Truly Offline</div>
-                        <div class="cap-desc">Works in tunnels, rural areas, and basements. Zero internet needed.</div>
+                    <div class="bubble caller">
+                        <div class="who">Caller</div>
+                        <p>Are you open Saturday, and can I get in for brakes?</p>
                     </div>
-                    <div class="cap-card glass tilt-3d">
-                        <span class="cap-icon">🔒</span>
-                        <div class="cap-title">HIPAA by Design</div>
-                        <div class="cap-desc">Patient data never leaves the device. Security baked in.</div>
+                    <div class="bubble agent">
+                        <div class="who">ShopLine</div>
+                        <p>Saturday is open until 1 p.m. The first brake opening is 9:30. I can book that and save your number for the shop.</p>
                     </div>
-                    <div class="cap-card glass tilt-3d">
-                        <span class="cap-icon">✅</span>
-                        <div class="cap-title">On-Device QA/QI</div>
-                        <div class="cap-desc">Clinical quality checks run locally on the ePCR draft. Catch gaps before the run closes.</div>
+                    <div class="call-result">
+                        <strong>Appointment booked</strong>
+                        <span>Saturday 9:30 · brake service · lead saved</span>
+                    </div>
+                    <figcaption>Illustrated example of a call. Not a customer transcript.</figcaption>
+                </figure>
+            </section>
+
+            <section class="section" id="shopline" aria-labelledby="shopline-title">
+                <div class="panel accent split">
+                    <div>
+                        <p class="kicker">First product</p>
+                        <h2 class="block-title" id="shopline-title">ShopLine answers the shop phone.</h2>
+                        <p class="sub">
+                            ShopLine is an AI phone receptionist for independent auto repair shops. The shop keeps its number and chooses which calls to forward: every call, after hours, or the ones nobody picked up. Callers can book, ask a question the shop has approved, or leave a message instead of hanging up.
+                        </p>
+                        <ul class="check-list">
+                            <li>Answers from that shop’s hours, services, and frequently asked questions.</li>
+                            <li>Books an appointment on ShopLine’s calendar or the shop’s Google Calendar.</li>
+                            <li>Takes a message and keeps the caller, so the lead is not lost.</li>
+                            <li>Can bring a person at the shop onto the call.</li>
+                            <li>Says it is an AI, and says the call is recorded.</li>
+                        </ul>
+                        <div class="cta-group">
+                            <a class="btn btn-primary" href="/contact.html?topic=shopline">Request a ShopLine demo</a>
+                            <a class="btn btn-secondary" href="/products.html#shopline">Product details</a>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <h3>What the shop controls</h3>
+                        <p>
+                            Hours, services, price ranges, and answers live in a dashboard the shop edits. ShopLine only quotes ranges the shop entered, and it says the final price comes after inspection. It does not take card numbers, and it does not promise a diagnosis or a completion time.
+                        </p>
+                        <ul class="check-list">
+                            <li>Calls, summaries, appointments, and customers in one place.</li>
+                            <li>A confirmation text only when the shop turns texts on and the caller agrees.</li>
+                        </ul>
                     </div>
                 </div>
+            </section>
 
-            </div>
-        </section>
+            <section class="section" id="services" aria-labelledby="services-title">
+                <div class="section-head">
+                    <h2 id="services-title">What we build</h2>
+                    <p>Practical AI software for a specific business. ShopLine is the first product. Other work starts as a custom build.</p>
+                </div>
+                <div class="grid-4">
+                    <article class="card panel">
+                        <h3>Custom AI applications</h3>
+                        <p>Software shaped around one operation: the screens, the rules, and the handoffs your team already uses.</p>
+                    </article>
+                    <article class="card panel">
+                        <h3>Workflow automation</h3>
+                        <p>Steps people retype, recheck, or chase by hand, connected so the work moves without someone pushing every stage.</p>
+                    </article>
+                    <article class="card panel">
+                        <h3>AI agents and assistants</h3>
+                        <p>Phone, chat, and internal assistants that answer from your information and hand off to a person when they should.</p>
+                    </article>
+                    <article class="card panel">
+                        <h3>Integrations</h3>
+                        <p>Calendars and the systems a team already runs. ShopLine can book on its own calendar or on Google Calendar.</p>
+                    </article>
+                </div>
+            </section>
 
+            <section class="section" id="approach" aria-labelledby="approach-title">
+                <div class="section-head">
+                    <h2 id="approach-title">How we work</h2>
+                    <p>A short path from the workflow you have to software people actually use.</p>
+                </div>
+                <div class="grid-4 steps">
+                    <article class="step panel">
+                        <h3>Discover</h3>
+                        <p>We learn the workflow, the tools, and where time and money leak.</p>
+                    </article>
+                    <article class="step panel">
+                        <h3>Build</h3>
+                        <p>We design the application around that work, including the rules you want enforced.</p>
+                    </article>
+                    <article class="step panel">
+                        <h3>Deploy</h3>
+                        <p>We put it into daily use: the phone line, the staff tools, and the systems it has to reach.</p>
+                    </article>
+                    <article class="step panel">
+                        <h3>Support</h3>
+                        <p>We stay with it after launch, adjust what real use reveals, and extend it when you are ready.</p>
+                    </article>
+                </div>
+            </section>
 
-        <!-- THREE PRODUCTS -->
-        <section class="products-teaser reveal" aria-label="Furian products">
-            <h2 class="section-title">Three <span style="color:#00d4ff;">products</span></h2>
-            <p class="section-sub">The Furian suite — Edge AI for pre-hospital, EMS, and police department deployments.</p>
-            <div class="product-teaser-grid">
-                <a class="product-teaser-card glass" href="/products.html#furians">
-                    <span class="icon-badge" aria-hidden="true">ES</span>
-                    <h3>FurianES</h3>
-                    <p>Complete pre-hospital system combining Fire and EMS.</p>
-                </a>
-                <a class="product-teaser-card glass" href="/products.html#furianems">
-                    <span class="icon-badge" aria-hidden="true">EMS</span>
-                    <h3>FurianEMS</h3>
-                    <p>EMS applications.</p>
-                </a>
-                <a class="product-teaser-card glass" href="/products.html#furianpd">
-                    <span class="icon-badge" aria-hidden="true">PD</span>
-                    <h3>FurianPD</h3>
-                    <p>Police department deployment.</p>
-                </a>
-            </div>
-        </section>
+            <section class="section" id="outcomes" aria-labelledby="outcomes-title">
+                <div class="section-head">
+                    <h2 id="outcomes-title">What the work is for</h2>
+                    <p>Productivity and efficiency, in service of growth: time back, cost out of the operation, and work the business gets to keep.</p>
+                </div>
+                <div class="grid-3">
+                    <article class="outcome panel">
+                        <h3>Save time</h3>
+                        <p>Routine questions, scheduling, and repetitive steps move into software, so people spend the day on work that needs them.</p>
+                    </article>
+                    <article class="outcome panel">
+                        <h3>Cut costs</h3>
+                        <p>Missed calls, after-hours voicemail, and manual follow-up are expensive. The software is there to take that waste out of the operation.</p>
+                    </article>
+                    <article class="outcome panel">
+                        <h3>Grow revenue</h3>
+                        <p>An appointment booked or a lead captured is work the business gets to keep. Custom tools are built to create that capacity.</p>
+                    </article>
+                </div>
+            </section>
 
-        <!-- BENTO FEATURES -->
-        <h2 class="section-title reveal">Built to <span style="color:#00d4ff;">reduce friction</span> and restore focus</h2>
-        <p class="section-sub reveal">
-            From AI-driven charting assistance to the Furian product suite and hardware ecosystems—everything we build fights fragmentation and cognitive load.
-        </p>
+            <section class="cta-band" aria-labelledby="home-cta">
+                <div>
+                    <h2 id="home-cta">Tell us where the work gets stuck.</h2>
+                    <p>A ShopLine demo for an auto repair shop, or a conversation about a custom application. We reply by email.</p>
+                </div>
+                <a class="btn btn-primary" href="/contact.html">Book a conversation</a>
+            </section>
+        </div>
+    </main>
 
-        <div class="bento-grid">
-            <div class="bento-item glass colspan-2 reveal accent-border tilt-3d">
-                <span class="icon">⚡</span>
-                <h3>Edge AI Engine</h3>
-                <p>Real-time clinical decision support and automated reporting suggestions—all processed locally on your device. Instantaneous, private, and always available.</p>
-            </div>
-            <div class="bento-item glass reveal tilt-3d">
-                <span class="icon">📱</span>
-                <h3>Furian App Suite</h3>
-                <p>FurianES, FurianEMS, and FurianPD — from ePCR to dispatch sync, intuitive and built for gloved hands in the back of a rig. Minimal clicks, maximum clarity.</p>
-            </div>
-            <div class="bento-item glass reveal tilt-3d">
-                <span class="icon">🔄</span>
-                <h3>End Fragmentation</h3>
-                <p>One platform. One workflow. Your monitors, tablets, and station PCs finally operate as a single, cohesive system.</p>
-            </div>
-            <div class="bento-item glass reveal tilt-3d">
-                <span class="icon">📊</span>
-                <h3>Smart Dashboards</h3>
-                <p>Administrative insights that highlight system bottlenecks without drowning you in noise. Data you actually need to act on.</p>
-            </div>
-            <div class="bento-item glass colspan-2 reveal tilt-3d">
-                <span class="icon">🔮</span>
-                <h3>Future-Ready Hardware</h3>
-                <p>We are designing physical devices—wearable monitors, in-vehicle gateways, and more—that inherit the same "just works" philosophy with Edge AI at the core.</p>
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <p>© 2026 Inarius Dynamics. Custom AI applications for growing businesses.</p>
+            <div class="footer-links">
+                <a href="/privacy.html">Privacy</a>
+                <a href="/contact.html">Contact</a>
+                <a href="/careers.html">Careers</a>
             </div>
         </div>
-
-        <!-- HARDWARE TEASER -->
-        <div class="hardware-tease glass reveal tilt-3d">
-            <div>
-                <h2>🧬 Next-gen <span>devices</span> + Edge AI</h2>
-                <p style="color:#9aafc7; margin-top: 8px;">Tight integration, rugged durability, zero setup friction—and intelligence that runs entirely on-device.</p>
-            </div>
-            <div class="chip-badge">Hardware R&D · 2027</div>
-        </div>
-
-        <div id="site-footer"></div>
-
-    </div>
-
-    <script src="site.js" defer></script>
-
-    
-    <script>
-        (function() {
-            'use strict';
-
-            // --- 1. KINETIC MORPHING HEADLINE ---
-            const morphText = document.getElementById('morphing-text');
-            const phrases = [
-                'Intelligence at the edge.',
-                'Zero latency. Zero clicks.',
-                'Focus on the patient.',
-                'AI that works anywhere.',
-                'Charting that happens itself.'
-            ];
-            let index = 0;
-
-            setInterval(() => {
-                morphText.style.opacity = '0';
-                setTimeout(() => {
-                    index = (index + 1) % phrases.length;
-                    morphText.textContent = phrases[index];
-                    morphText.style.opacity = '1';
-                }, 300);
-            }, 3500);
-
-            // --- 2. 3D MOUSE-TILT (Hologram Parallax) ---
-            const tiltCards = document.querySelectorAll('.tilt-3d');
-
-            tiltCards.forEach((card) => {
-                card.addEventListener('mousemove', function(e) {
-                    const rect = this.getBoundingClientRect();
-                    const x = e.clientX - rect.left;
-                    const y = e.clientY - rect.top;
-                    const centerX = rect.width / 2;
-                    const centerY = rect.height / 2;
-
-                    const rotateX = ((y - centerY) / centerY) * -8;
-                    const rotateY = ((x - centerX) / centerX) * 8;
-
-                    this.style.transform =
-                        `perspective(800px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
-                    this.style.transition = 'transform 0.08s ease-out';
-                });
-
-                card.addEventListener('mouseleave', function() {
-                    this.style.transform =
-                    `perspective(800px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)`;
-                    this.style.transition = 'transform 0.5s cubic-bezier(0.2, 0.9, 0.3, 1)';
-                });
-            });
-
-            console.log('🚑 Inarius Dynamics — Hyper-Glass 2.0 | Edge AI | Built for the frontline.');
-        })();
-    </script>
-
+    </footer>
+    <script src="/site.js" defer></script>
 </body>
 </html>

@@ -3,604 +3,154 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="FurianES, FurianEMS, and FurianPD: offline-first software for pre-hospital Fire &amp; EMS, EMS applications, and police department deployment. On-device ePCR, NFIRS/NERIS, CAD, and incident analytics." />
+    <title>Solutions · Inarius Dynamics</title>
+    <meta name="description" content="Custom AI applications, workflow automation, assistants, and integrations. ShopLine is our AI phone receptionist for independent auto repair shops." />
     <link rel="canonical" href="https://www.inariusdynamics.com/products.html" />
+    <meta name="theme-color" content="#070b12" />
     <link rel="icon" href="/favicon.ico" sizes="any" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Inarius Dynamics" />
-    <meta property="og:title" content="Products · Inarius Dynamics" />
-    <meta property="og:description" content="FurianES, FurianEMS, and FurianPD: offline-first software for pre-hospital Fire &amp; EMS, EMS applications, and police department deployment. On-device ePCR, NFIRS/NERIS, CAD, and incident analytics." />
+    <meta property="og:title" content="Solutions · Inarius Dynamics" />
+    <meta property="og:description" content="Custom AI applications, workflow automation, assistants, and integrations. ShopLine is our AI phone receptionist for independent auto repair shops." />
     <meta property="og:url" content="https://www.inariusdynamics.com/products.html" />
     <meta property="og:image" content="https://www.inariusdynamics.com/og-image.jpg" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Products · Inarius Dynamics" />
-    <meta name="twitter:description" content="FurianES, FurianEMS, and FurianPD: offline-first software for pre-hospital Fire &amp; EMS, EMS applications, and police department deployment. On-device ePCR, NFIRS/NERIS, CAD, and incident analytics." />
+    <meta name="twitter:title" content="Solutions · Inarius Dynamics" />
+    <meta name="twitter:description" content="Custom AI applications, workflow automation, assistants, and integrations. ShopLine is our AI phone receptionist for independent auto repair shops." />
     <meta name="twitter:image" content="https://www.inariusdynamics.com/og-image.jpg" />
-    <title>Products · Inarius Dynamics</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;600;700;800&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="site.css" />
-    <style>
-        /* ===== ICON BADGES ===== */
-        .icon-badge {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 44px;
-            height: 44px;
-            border-radius: 12px;
-            font-size: 0.68rem;
-            font-weight: 700;
-            letter-spacing: 0.6px;
-            color: #88ddff;
-            text-transform: uppercase;
-            margin-bottom: 12px;
-            background:
-                linear-gradient(145deg, rgba(8, 16, 28, 0.95), rgba(12, 22, 38, 0.9)) padding-box,
-                linear-gradient(135deg, #00d4ff, #0088ff) border-box;
-            border: 1.5px solid transparent;
-            box-shadow: 0 0 16px rgba(0, 180, 255, 0.12);
-        }
-        .icon-badge.circle {
-            border-radius: 50%;
-        }
-
-        /* ===== PRODUCT SECTION ===== */
-        .product-section {
-            margin: 72px 0 88px 0;
-        }
-        .product-section + .product-divider + .product-section {
-            margin-top: 0;
-        }
-        .product-header {
-            display: flex;
-            align-items: center;
-            gap: 14px;
-            margin-bottom: 10px;
-            flex-wrap: wrap;
-        }
-        .product-header .badge {
-            background: rgba(0, 200, 255, 0.15);
-            padding: 4px 16px;
-            border-radius: 40px;
-            font-size: 0.7rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: #88ddff;
-            border: 1px solid rgba(0, 200, 255, 0.15);
-        }
-        .product-kicker {
-            display: inline-flex;
-            align-items: baseline;
-            gap: 8px;
-        }
-        .product-name {
-            color: #00d4ff;
-            font-weight: 700;
-            font-size: 1.05rem;
-            letter-spacing: -0.2px;
-        }
-        .product-sep {
-            color: #5a6f85;
-            font-weight: 400;
-        }
-        .product-subtitle {
-            color: #5a6f85;
-            font-weight: 400;
-            font-size: 0.9rem;
-        }
-        .product-section h2 {
-            font-size: 2.4rem;
-            font-weight: 700;
-            letter-spacing: -1px;
-        }
-        .product-section .tagline {
-            font-size: 1.1rem;
-            color: #7a8da0;
-            margin-bottom: 24px;
-        }
-        .product-section .description {
-            font-size: 1.05rem;
-            color: #c8d6e5;
-            max-width: 800px;
-            margin-bottom: 32px;
-            line-height: 1.7;
-        }
-
-        /* Thin divider between products */
-        .product-divider {
-            height: 1px;
-            border: none;
-            margin: 0;
-            background: linear-gradient(
-                90deg,
-                transparent 0%,
-                rgba(0, 180, 255, 0.22) 20%,
-                rgba(0, 180, 255, 0.22) 80%,
-                transparent 100%
-            );
-        }
-
-        /* ===== MODULE GRID (Bento) ===== */
-        .module-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 20px;
-            margin-bottom: 20px;
-        }
-        .module-card {
-            padding: 24px 20px;
-            border: 1px solid rgba(255, 255, 255, 0.04);
-            border-radius: 20px;
-            background: rgba(255, 255, 255, 0.02);
-            transition: background 0.3s ease, border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        .module-card:hover {
-            background: rgba(255, 255, 255, 0.06);
-            border-color: rgba(0, 180, 255, 0.22);
-            transform: translateY(-4px);
-            box-shadow: 0 12px 28px rgba(0, 100, 255, 0.12);
-        }
-        .module-card h4 {
-            font-size: 1rem;
-            font-weight: 600;
-            margin-bottom: 6px;
-            color: #e8edf5;
-        }
-        .module-card p {
-            font-size: 0.85rem;
-            color: #9aafc7;
-            line-height: 1.5;
-        }
-        .module-card.colspan-2 {
-            grid-column: span 2;
-        }
-        .module-card.colspan-3 {
-            grid-column: span 3;
-        }
-
-        /* ===== SHARED ARCHITECTURE ===== */
-        .shared-arch {
-            margin: 72px 0 88px 0;
-            padding: 48px 40px;
-            background: linear-gradient(145deg, rgba(0, 100, 255, 0.06), rgba(0, 0, 0, 0.2));
-            border: 1px solid rgba(0, 180, 255, 0.08);
-            border-radius: 24px;
-        }
-        .shared-arch h2 {
-            font-size: 2rem;
-            font-weight: 700;
-            letter-spacing: -1px;
-            margin-bottom: 12px;
-        }
-        .shared-arch h2 span {
-            color: #00d4ff;
-        }
-        .shared-arch .sub {
-            color: #7a8da0;
-            max-width: 700px;
-            margin-bottom: 32px;
-            font-size: 1.05rem;
-        }
-        .arch-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 16px;
-        }
-        .arch-item {
-            padding: 20px 18px;
-            background: rgba(255, 255, 255, 0.03);
-            border-radius: 16px;
-            border: 1px solid rgba(255, 255, 255, 0.04);
-            text-align: center;
-            transition: border-color 0.3s ease, background 0.3s ease;
-        }
-        .arch-item:hover {
-            background: rgba(255, 255, 255, 0.05);
-            border-color: rgba(0, 180, 255, 0.15);
-        }
-        .arch-item .icon-badge {
-            margin-left: auto;
-            margin-right: auto;
-            margin-bottom: 10px;
-        }
-        .arch-item h4 {
-            font-size: 0.95rem;
-            font-weight: 600;
-            color: #e8edf5;
-        }
-        .arch-item p {
-            font-size: 0.8rem;
-            color: #9aafc7;
-            margin-top: 4px;
-        }
-
-        /* ===== CAPABILITY CHIPS ===== */
-        .capability-row {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin: 8px 0 40px 0;
-            justify-content: flex-start;
-        }
-        .capability-chip {
-            display: inline-flex;
-            align-items: center;
-            padding: 8px 16px;
-            border-radius: 40px;
-            font-size: 0.78rem;
-            font-weight: 600;
-            letter-spacing: 0.3px;
-            color: #88ddff;
-            background: rgba(0, 200, 255, 0.08);
-            border: 1px solid rgba(0, 200, 255, 0.18);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            box-shadow: 0 0 12px rgba(0, 180, 255, 0.08);
-        }
-
-        /* ===== CTA BAND ===== */
-        .cta-band {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 24px;
-            padding: 40px 36px;
-            margin: 20px 0 80px 0;
-            flex-wrap: wrap;
-            background: linear-gradient(145deg, rgba(0, 100, 255, 0.06), rgba(0, 0, 0, 0.2));
-            border: 1px solid rgba(0, 180, 255, 0.08);
-            border-radius: 20px;
-        }
-        .cta-band h2 {
-            font-size: 1.7rem;
-            font-weight: 700;
-            letter-spacing: -0.5px;
-        }
-        .cta-band p {
-            color: #9aafc7;
-            margin-top: 6px;
-            max-width: 520px;
-        }
-
-        @media (max-width: 1024px) {
-            .module-grid {
-                grid-template-columns: 1fr 1fr;
-            }
-            .module-card.colspan-2,
-            .module-card.colspan-3 {
-                grid-column: span 1;
-            }
-            .arch-grid {
-                grid-template-columns: 1fr 1fr;
-            }
-        }
-        @media (max-width: 640px) {
-            .module-grid {
-                grid-template-columns: 1fr;
-            }
-            .arch-grid {
-                grid-template-columns: 1fr;
-            }
-            .shared-arch {
-                padding: 28px 20px;
-            }
-            .product-section h2 {
-                font-size: 1.8rem;
-            }
-            .cta-band {
-                padding: 28px 20px;
-            }
-            .btn-primary {
-                width: 100%;
-                text-align: center;
-            }
-        }
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/site.css" />
 </head>
-<body data-page="products">
-
-    <!-- GRAIN OVERLAY -->
-    <div id="grain-overlay"></div>
-
-    <div class="container">
-
-        <div id="site-header"></div>
-
-        <!-- ===== PAGE HERO ===== -->
-        <section class="page-hero reveal">
-            <h1>Built for the <span class="highlight">frontline.</span><br />Powered by <span class="highlight">Edge AI.</span></h1>
-            <p>
-                Imagine never needing an EKG modem to get patient data to the hospital again. The most advanced platform of its kind — yet intuitive and rugged enough for any environment — bringing ePCR, NFIRS/NERIS reporting, CAD, Fire Investigation, Training, HazMat, and Incident Command into one fast, touch-first workspace.
-            </p>
-            <p>
-                True offline AI and advanced dictation keep you moving when the network drops. The future is finally here.
-            </p>
-        </section>
-
-        <div class="capability-row reveal" aria-label="Core capabilities">
-            <span class="capability-chip">ePCR</span>
-            <span class="capability-chip">NFIRS / NERIS</span>
-            <span class="capability-chip">CAD</span>
-            <span class="capability-chip">Fire Investigation</span>
-            <span class="capability-chip">Training</span>
-            <span class="capability-chip">HazMat</span>
-            <span class="capability-chip">Incident Command</span>
-            <span class="capability-chip">MCI Triage</span>
-            <span class="capability-chip">Intelligent Inventory &amp; Apparatus Checks</span>
-            <span class="capability-chip">Universal Translation</span>
-            <span class="capability-chip">Hydrant Inspections</span>
-            <span class="capability-chip">Building Inspections</span>
-            <span class="capability-chip">Advanced Incident Analytics</span>
-            <span class="capability-chip">On-Device QA/QI</span>
-            <span class="capability-chip">Protocol-Grounded Dosing Calculators</span>
-            <span class="capability-chip">Geofencing</span>
-            <span class="capability-chip">Pre-Plans &amp; Inspections</span>
-            <span class="capability-chip">AR (LiDAR) Pre-Planning</span>
+<body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header">
+        <div class="nav-inner">
+            <a class="logo" href="/">
+                <img src="/Inarius_logo.png" alt="" width="42" height="42" />
+                <span class="logo-text">Inarius <span>Dynamics</span></span>
+            </a>
+            <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+                <span class="nav-toggle-bars" aria-hidden="true"></span>
+                <span class="sr-only">Open menu</span>
+            </button>
+            <nav id="site-nav" class="nav-links" aria-label="Primary">
+                <a href="/">Home</a>
+                <a href="/products.html" aria-current="page">Solutions</a>
+                <a href="/about.html">About</a>
+                <a class="nav-cta" href="/contact.html">Book a conversation</a>
+            </nav>
         </div>
+    </header>
 
-        <!-- ============================================================ -->
-        <!-- PRODUCT 1: FurianES                                          -->
-        <!-- ============================================================ -->
+    <main id="main">
+        <div class="container">
+            <section class="page-hero">
+                <p class="eyebrow">Solutions</p>
+                <h1>Custom AI, applied to real operations.</h1>
+                <p>
+                    ShopLine is our first product: an AI phone receptionist for independent auto repair shops. Around it, we build applications, automations, assistants, and integrations for other businesses.
+                </p>
+            </section>
 
-        <section class="product-section reveal" id="furians">
-            <div class="product-header">
-                <span class="badge">Product</span>
-                <span class="product-name">FurianES</span>
-                <span class="product-subtitle">Complete Pre-Hospital · Fire &amp; EMS</span>
-            </div>
-            <h2>One Platform for Fire and EMS</h2>
-            <p class="tagline">The complete pre-hospital system combining Fire and EMS — NFIRS/NERIS, Incident Command, Training, HazMat, inspections, apparatus readiness, and AR evidence capture that runs offline.</p>
-            <p class="description">
-                FurianES is the full pre-hospital stack for combination departments and agencies that run both fire and EMS. Investigation-grade evidence tooling, operational modules, and frontline workflows live in one rugged workspace: from on-device 3D scene capture and cryptographic chain of custody to hydrant and building inspections, Intelligent Inventory &amp; Apparatus Checks, and ICS handoff. Everything stays on-device when the network drops.
-            </p>
+            <section class="section" id="shopline" aria-labelledby="shopline-title">
+                <div class="section-head">
+                    <p class="kicker">ShopLine</p>
+                    <h2 id="shopline-title">An AI phone receptionist for auto repair shops</h2>
+                    <p>
+                        ShopLine answers a shop’s forwarded phone line, speaks from that shop’s hours, services, and answers, and books into a calendar. The shop keeps its own number. Forwarding can cover every call, after-hours calls, or calls nobody answered.
+                    </p>
+                </div>
 
-            <div class="module-grid">
-                <div class="module-card glass colspan-2">
-                    <span class="icon-badge" aria-hidden="true">NFR</span>
-                    <h4>NFIRS / NERIS Auto‑Scribe</h4>
-                    <p>On-device AI turns field dictation, scene visuals, and weather back-cast data into draft Origin &amp; Cause narratives validated for state reporting.</p>
+                <div class="grid-2">
+                    <article class="panel">
+                        <h3>On the call</h3>
+                        <ul class="check-list">
+                            <li>Greets the caller as an AI assistant for that shop and says the call is recorded.</li>
+                            <li>Answers hours, services, and the questions the shop has written down.</li>
+                            <li>Offers only the price ranges the shop entered, and says the final price comes after inspection.</li>
+                            <li>Books an open slot, or saves a request the shop can confirm.</li>
+                            <li>Takes a message with the caller’s details when it should not book.</li>
+                            <li>Can transfer the call to a person at the shop.</li>
+                            <li>If the caller objects to recording, the transcript and recording are not stored. A booking or message already captured is kept.</li>
+                        </ul>
+                    </article>
+                    <article class="panel">
+                        <h3>For the shop</h3>
+                        <ul class="check-list">
+                            <li>A dashboard for today’s calls, upcoming appointments, and recent call summaries.</li>
+                            <li>Each call can show the outcome, summary, customer, and transcript, unless recording was declined.</li>
+                            <li>Appointments can be added or cancelled. Customers keep their phone number and vehicles.</li>
+                            <li>The shop edits hours, services, answers, slot length, and the number used for a transfer.</li>
+                            <li>Booking can use ShopLine’s calendar or Google Calendar.</li>
+                            <li>A confirmation text goes out only after the shop enables texts and the caller agrees. Until then, texts are not offered.</li>
+                        </ul>
+                    </article>
                 </div>
-                <div class="module-card glass">
-                    <span class="icon-badge" aria-hidden="true">AR</span>
-                    <h4>AR Scene Scanner</h4>
-                    <p>On-device scanning builds 2D floor plans and 3D structural meshes. A hybrid sketchpad supports Apple Pencil burn-pattern mapping in the field.</p>
-                </div>
-                <div class="module-card glass">
-                    <span class="icon-badge" aria-hidden="true">3D</span>
-                    <h4>3D Evidence Capture</h4>
-                    <p>Photogrammetry produces interactive 3D evidence models. NFC / QR chain-of-custody ties evidence cryptographically to AR anchors.</p>
-                </div>
-                <div class="module-card glass">
-                    <span class="icon-badge" aria-hidden="true">AR</span>
-                    <h4>AR (LiDAR) Pre-Planning</h4>
-                    <p>Tap-to-tag NFPA/ICS symbology (FDC, Knox Box, FACP) onto captured scene meshes. ICS Command Handoff exports spatial anchors to the command board.</p>
-                </div>
-                <div class="module-card glass">
-                    <span class="icon-badge" aria-hidden="true">ICS</span>
-                    <h4>Incident Command</h4>
-                    <p>Command boards and role assignments built for the apparatus tablet. Spatial handoff keeps the next sector officer oriented without radio clutter.</p>
-                </div>
-                <div class="module-card glass">
-                    <span class="icon-badge" aria-hidden="true">HZM</span>
-                    <h4>HazMat &amp; Training</h4>
-                    <p>HazMat reference tables stay on-device for instant lookup. Training modules keep crews current without a classroom network.</p>
-                </div>
-                <div class="module-card glass">
-                    <span class="icon-badge" aria-hidden="true">INS</span>
-                    <h4>Hydrant &amp; Building Inspections</h4>
-                    <p>Field inspection workflows for hydrants and structures — capture, annotate, and sync when connectivity returns.</p>
-                </div>
-                <div class="module-card glass">
-                    <span class="icon-badge" aria-hidden="true">PP</span>
-                    <h4>Pre-Plans &amp; Inspections</h4>
-                    <p>Build and maintain occupancy pre-plans alongside inspection workflows — hazards, access, and critical building intel ready before the first-due arrives.</p>
-                </div>
-                <div class="module-card glass">
-                    <span class="icon-badge" aria-hidden="true">INV</span>
-                    <h4>Intelligent Inventory &amp; Apparatus Checks</h4>
-                    <p>Apparatus readiness and inventory checks that stay with the rig. Flag missing gear before the tones drop.</p>
-                </div>
-                <div class="module-card glass colspan-2">
-                    <span class="icon-badge" aria-hidden="true">BT</span>
-                    <h4>Bluetooth 6.0 &amp; P25 Bridge</h4>
-                    <p>Channel Sounding for cm‑accurate crew ranging. Graph SLAM delivers directional MAYDAY vectoring. Direct integration with Motorola APX radios.</p>
-                </div>
-            </div>
-        </section>
 
-        <hr class="product-divider" />
+                <div class="panel gap-top">
+                    <h3>Designed limits</h3>
+                    <p class="sub">These are part of the product, not fine print we hope you miss.</p>
+                    <ul class="check-list">
+                        <li>It does not take card numbers.</li>
+                        <li>It does not invent a price, a diagnosis, or a completion time.</li>
+                        <li>If someone asks whether they are talking to a person, it says it is an AI assistant for the shop.</li>
+                        <li>The shop cannot rewrite the opening line that discloses the AI and the recording.</li>
+                    </ul>
+                </div>
+            </section>
 
-        <!-- ============================================================ -->
-        <!-- PRODUCT 2: FurianEMS                                         -->
-        <!-- ============================================================ -->
+            <section class="section" id="services" aria-labelledby="services-title">
+                <div class="section-head">
+                    <h2 id="services-title">Custom work beyond ShopLine</h2>
+                    <p>When the problem is not the shop phone, we still start from the workflow. The shape of the software follows the work.</p>
+                </div>
+                <div class="grid-2">
+                    <article class="panel">
+                        <h3>Custom AI applications</h3>
+                        <p>An application for one business: the data it already has, the decisions staff make, and the outcome you want more of.</p>
+                    </article>
+                    <article class="panel">
+                        <h3>Workflow automation</h3>
+                        <p>The handoffs between people and tools. Intake, follow-up, status, and the checks that currently live in someone’s head or inbox.</p>
+                    </article>
+                    <article class="panel">
+                        <h3>AI agents and assistants</h3>
+                        <p>A phone, chat, or internal assistant with a defined job, a defined source of truth, and a defined moment to hand the work to a person.</p>
+                    </article>
+                    <article class="panel">
+                        <h3>Integrations</h3>
+                        <p>Connections to calendars and the other systems the team already uses, so the new application does not become another place to retype the same facts.</p>
+                    </article>
+                </div>
+            </section>
 
-        <section class="product-section reveal" id="furianems">
-            <div class="product-header">
-                <span class="badge">Product</span>
-                <span class="product-name">FurianEMS</span>
-                <span class="product-subtitle">EMS Applications</span>
-            </div>
-            <h2>EMS Applications Built for the Rig</h2>
-            <p class="tagline">Focused EMS applications — protocol-grounded dosing, ePCR, NEMSIS 3.5, MCI triage, and encrypted hospital handoff without an EKG modem.</p>
-            <p class="description">
-                FurianEMS delivers the EMS application suite for agencies that need clinical documentation and patient-care tools first. Built for the realities of the ambulance bay, advanced EMS tools and dosing calculators run beside ePCR and handoff, driven by protocol-grounded on-device AI so recommendations stay aligned with your agency's standing orders. Documentation, MCI triage, and clinical QA stay offline-first. PHI stays encrypted and processed on-device, aligned with HIPAA-minded workflows.
-            </p>
-
-            <div class="module-grid">
-                <div class="module-card glass colspan-2">
-                    <span class="icon-badge" aria-hidden="true">AI</span>
-                    <h4>Edge AI Clinical Orchestrator</h4>
-                    <p>Powerful on-device AI for language, vision, and speech runs together inside Furian so clinical prompts feel instant, even with no network.</p>
+            <section class="cta-band" aria-labelledby="solutions-cta">
+                <div>
+                    <h2 id="solutions-cta">See it against your own workflow.</h2>
+                    <p>Ask for a ShopLine demo, or describe the operation you want software to take on.</p>
                 </div>
-                <div class="module-card glass">
-                    <span class="icon-badge" aria-hidden="true">NEM</span>
-                    <h4>NEMSIS 3.5 ePCR</h4>
-                    <p>Field dictation and on-device visual cues draft compliant ePCR narratives. Validates against state datasets (e.g., Maryland MIEMSS / eMEDS).</p>
-                </div>
-                <div class="module-card glass">
-                    <span class="icon-badge" aria-hidden="true">HOS</span>
-                    <h4>Hospital Handoff</h4>
-                    <p>Encrypted patient data transfer to receiving facilities — no EKG modem required. Structured clinical summaries ready before the bay doors open.</p>
-                </div>
-                <div class="module-card glass colspan-2">
-                    <span class="icon-badge" aria-hidden="true">RX</span>
-                    <h4>Protocol-Grounded EMS Tools &amp; Dosing</h4>
-                    <p>The most advanced EMS tools and dosing calculators available — weight-based meds, infusions, and decision support powered by protocol-grounded AI and your agency standing orders, fully on-device.</p>
-                </div>
-                <div class="module-card glass">
-                    <span class="icon-badge" aria-hidden="true">MCI</span>
-                    <h4>MCI Triage</h4>
-                    <p>Mass‑casualty triage workflows on‑device. Rapid patient tagging, status boards, and transport priority without waiting on a network.</p>
-                </div>
-                <div class="module-card glass">
-                    <span class="icon-badge" aria-hidden="true">QA</span>
-                    <h4>On‑Device QA/QI</h4>
-                    <p>Clinical quality checks run locally against the ePCR draft. Flag incomplete fields and protocol gaps before the run is closed.</p>
-                </div>
-                <div class="module-card glass">
-                    <span class="icon-badge" aria-hidden="true">TRN</span>
-                    <h4>Universal Translation</h4>
-                    <p>On‑device multilingual assistance for patient interviews and handoff notes — privacy‑aligned, no cloud round‑trip for spoken clinical content.</p>
-                </div>
-                <div class="module-card glass colspan-2">
-                    <span class="icon-badge" aria-hidden="true">MIC</span>
-                    <h4>Advanced Dictation</h4>
-                    <p>Low-latency field dictation on-device. Crew narratives become structured ePCR fields without breaking patient care flow.</p>
-                </div>
-            </div>
-        </section>
-
-        <hr class="product-divider" />
-
-        <!-- ============================================================ -->
-        <!-- PRODUCT 3: FurianPD                                          -->
-        <!-- ============================================================ -->
-
-        <section class="product-section reveal" id="furianpd">
-            <div class="product-header">
-                <span class="badge">Product</span>
-                <span class="product-name">FurianPD</span>
-                <span class="product-subtitle">Police Department Deployment</span>
-            </div>
-            <h2>Police Department Deployment</h2>
-            <p class="tagline">CAD summarization, voice-driven incident reporting, OCR, LiDAR/AR pre-planning, ArcGIS, and Advanced Incident Analytics — offline‑first on M‑series iPad Pro.</p>
-            <p class="description">
-                FurianPD is the police department deployment of the Furian stack: turning raw CAD into clear briefings, capturing incident reports by dictation, and layering LiDAR and AR pre-planning into a streamlined interface. Built for the officer running command from the vehicle, when every second and every word counts, and sensitive field data stays encrypted on-device.
-            </p>
-
-            <div class="module-grid">
-                <div class="module-card glass colspan-2">
-                    <span class="icon-badge" aria-hidden="true">AI</span>
-                    <h4>AI Speech &amp; CAD Pipeline</h4>
-                    <p>On-device AI summarizes raw CAD notes into short briefings and powers low-latency field dictation for incident reports.</p>
-                </div>
-                <div class="module-card glass">
-                    <span class="icon-badge" aria-hidden="true">OCR</span>
-                    <h4>On-Device OCR</h4>
-                    <p>On-device scanning of driver's licenses, IDs, and HazMat manifests, with intelligent parsing that never needs the cloud.</p>
-                </div>
-                <div class="module-card glass">
-                    <span class="icon-badge" aria-hidden="true">3D</span>
-                    <h4>AR (LiDAR) Pre-Planning</h4>
-                    <p>Capture 3D building spaces in the field. Export spatial models paired with GPS and heading metadata for pre-planning.</p>
-                </div>
-                <div class="module-card glass">
-                    <span class="icon-badge" aria-hidden="true">AR</span>
-                    <h4>Dual-Mode AR</h4>
-                    <p>1:50 scale tabletop dollhouse mode anchored to command vehicle surfaces, or 1:1 real-world walkthrough mode.</p>
-                </div>
-                <div class="module-card glass">
-                    <span class="icon-badge" aria-hidden="true">GIS</span>
-                    <h4>ArcGIS Integration</h4>
-                    <p>Dark vector basemaps with active CAD call markers. 3D building pre‑plan overlays placed directly onto GIS locations.</p>
-                </div>
-                <div class="module-card glass">
-                    <span class="icon-badge" aria-hidden="true">THM</span>
-                    <h4>Thermal &amp; Field Optimizations</h4>
-                    <p>Adaptive throttling keeps AR and AI responsive in vehicle mounts and high-heat environments without cooking the tablet.</p>
-                </div>
-                <div class="module-card glass colspan-2">
-                    <span class="icon-badge" aria-hidden="true">ANA</span>
-                    <h4>Advanced Incident Analytics</h4>
-                    <p>On-device pattern and workload views across calls and reports, with a streamlined action deck for camera, interpreter, and evidence tools.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- ============================================================ -->
-        <!-- SHARED ARCHITECTURE                                           -->
-        <!-- ============================================================ -->
-
-        <section class="shared-arch reveal glass">
-            <h2>Shared <span>Architecture</span></h2>
-            <p class="sub">
-                FurianES, FurianEMS, and FurianPD share a common foundation of on‑device AI, spatial intelligence, and
-                enterprise‑grade encryption. Everything runs locally — no cloud required for core clinical, fire, or tactical workflows.
-            </p>
-            <div class="arch-grid">
-                <div class="arch-item">
-                    <span class="icon-badge circle" aria-hidden="true">AI</span>
-                    <h4>On-Device AI</h4>
-                    <p>Language, vision, and speech AI run locally inside Furian. No cloud round-trip for core workflows.</p>
-                </div>
-                <div class="arch-item">
-                    <span class="icon-badge circle" aria-hidden="true">OFF</span>
-                    <h4>Offline‑First</h4>
-                    <p>Zero dependence on cellular or Wi‑Fi. Full functionality in dead zones.</p>
-                </div>
-                <div class="arch-item">
-                    <span class="icon-badge circle" aria-hidden="true">AR</span>
-                    <h4>LiDAR + AR</h4>
-                    <p>Scene capture, 3D modeling, and spatial anchors baked into frontline workflows.</p>
-                </div>
-                <div class="arch-item">
-                    <span class="icon-badge circle" aria-hidden="true">THM</span>
-                    <h4>Thermal Management</h4>
-                    <p>Adaptive throttling keeps displays bright in vehicle mounts and high‑heat environments.</p>
-                </div>
-                <div class="arch-item">
-                    <span class="icon-badge circle" aria-hidden="true">ENC</span>
-                    <h4>Encrypted On‑Device</h4>
-                    <p>Local processing with encryption at rest. HIPAA‑aligned clinical paths in FurianEMS.</p>
-                </div>
-                <div class="arch-item">
-                    <span class="icon-badge circle" aria-hidden="true">ZC</span>
-                    <h4>Performance Tuned</h4>
-                    <p>Engineered for iPad performance in the field: fast AI, smooth AR, minimal battery waste.</p>
-                </div>
-                <div class="arch-item">
-                    <span class="icon-badge circle" aria-hidden="true">GEO</span>
-                    <h4>Geofencing</h4>
-                    <p>Station, scene, and facility geofences trigger status, logging, and workflow cues across FurianES, FurianEMS, and FurianPD — on-device, even when the network drops.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- ===== CTA BAND ===== -->
-        <div class="cta-band glass reveal">
-            <div>
-                <h2>Ready for a Furian agency demo?</h2>
-                <p>Talk to us about FurianES, FurianEMS, and FurianPD — offline AI, dictation, and frontline reporting tailored to your agency.</p>
-            </div>
-            <a class="btn-primary" href="/contact.html">Contact us</a>
+                <a class="btn btn-primary" href="/contact.html">Book a conversation</a>
+            </section>
         </div>
+    </main>
 
-        <div id="site-footer"></div>
-
-    </div>
-
-    <script src="site.js" defer></script>
-    <script>
-        console.log('Inarius Dynamics — Products page loaded.');
-    </script>
-
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <p>© 2026 Inarius Dynamics. Custom AI applications for growing businesses.</p>
+            <div class="footer-links">
+                <a href="/privacy.html">Privacy</a>
+                <a href="/contact.html">Contact</a>
+                <a href="/careers.html">Careers</a>
+            </div>
+        </div>
+    </footer>
+    <script src="/site.js" defer></script>
 </body>
 </html>

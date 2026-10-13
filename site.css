@@ -167,6 +167,7 @@ a {
     color: #fff !important;
     padding: 10px 16px !important;
     border-radius: 999px !important;
+    white-space: nowrap;
 }
 
 .nav-cta:hover {
@@ -664,8 +665,45 @@ h1 {
     display: block;
 }
 
-#contact-form.is-hidden {
+#contact-form.is-hidden,
+#demo-form.is-hidden {
     display: none;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0 16px;
+}
+
+.optional {
+    font-weight: 400;
+    text-transform: none;
+    letter-spacing: 0;
+}
+
+.form-error {
+    min-height: 0;
+    margin: 0 0 12px;
+    color: #ffb4b4;
+    font-size: 0.9rem;
+}
+
+.form-error:empty {
+    display: none;
+}
+
+.form-note a,
+.sub a {
+    color: var(--cyan);
+}
+
+.hp-field {
+    position: absolute;
+    left: -10000px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
 }
 
 .side-stack {
@@ -740,20 +778,7 @@ h1 {
 }
 
 /* ===== RESPONSIVE ===== */
-@media (max-width: 900px) {
-    .hero,
-    .split,
-    .contact-grid,
-    .grid-4,
-    .grid-3,
-    .grid-2 {
-        grid-template-columns: 1fr;
-    }
-
-    .hero {
-        padding-top: 40px;
-    }
-
+@media (max-width: 1080px) {
     .nav-toggle {
         display: inline-flex;
     }
@@ -762,15 +787,17 @@ h1 {
         display: none;
         position: absolute;
         top: calc(100% + 1px);
-        left: 50%;
-        transform: translateX(-50%);
-        width: 100vw;
+        left: 0;
+        right: 0;
+        width: auto;
+        transform: none;
         flex-direction: column;
         align-items: stretch;
         gap: 4px;
         padding: 8px 20px 18px;
-        background: rgba(7, 11, 18, 0.98);
+        background: #070b12;
         border-bottom: 1px solid var(--line);
+        z-index: 40;
     }
 
     .nav-links.is-open {
@@ -784,6 +811,21 @@ h1 {
     .nav-cta {
         margin: 8px 0 0;
         text-align: center;
+    }
+}
+
+@media (max-width: 900px) {
+    .hero,
+    .split,
+    .contact-grid,
+    .grid-4,
+    .grid-3,
+    .grid-2 {
+        grid-template-columns: 1fr;
+    }
+
+    .hero {
+        padding-top: 40px;
     }
 
     .cta-band {
@@ -800,8 +842,13 @@ h1 {
     }
 
     .cta-group .btn,
-    .cta-band .btn {
+    .cta-band .btn,
+    #demo-form .btn {
         width: 100%;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
     }
 
     .footer-inner {

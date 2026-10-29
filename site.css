@@ -674,6 +674,15 @@ h1 {
     display: block;
 }
 
+.success-state[hidden] {
+    display: none !important;
+}
+
+.form-error a {
+    color: inherit;
+    font-weight: 600;
+}
+
 #contact-form.is-hidden,
 #demo-form.is-hidden {
     display: none;
@@ -693,9 +702,11 @@ h1 {
 
 .form-error {
     min-height: 0;
-    margin: 0 0 12px;
+    margin: 8px 0 14px;
     color: #ffb4b4;
-    font-size: 0.9rem;
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 1.5;
 }
 
 .form-error:empty {

@@ -117,13 +117,9 @@
                             <p class="form-note">We’ll reply at the email you enter. For other work, use the <a href="/contact.html">contact page</a>.</p>
                         </form>
                     </div>
-                    <div class="success-state" id="success-sent" aria-live="polite">
+                    <div class="success-state" id="success-sent" role="status" aria-live="polite" hidden>
                         <h3>Request sent</h3>
                         <p class="sub">We’ll reply at the email you entered.</p>
-                    </div>
-                    <div class="success-state" id="success-mailto" aria-live="polite">
-                        <h3>One more step</h3>
-                        <p class="sub">Your email app should open with this request ready. Send that message and we’ll take it from there.</p>
                     </div>
                     <noscript>
                         <p class="sub">This form needs JavaScript. Email <a href="mailto:nbstefany87@gmail.com?subject=ShopLine%20demo%20request">nbstefany87@gmail.com</a> with your name, shop, phone, city and state, and a time to talk.</p>
@@ -164,9 +160,12 @@
     <script>
         (function () {
             var DEMO_EMAIL = 'nbstefany87@gmail.com';
+            var DEMO_PHONE_TEXT = '717-414-0047';
+            var DEMO_PHONE_TEL = '+17174140047';
             var form = document.getElementById('demo-form');
             var submitBtn = document.getElementById('submit-btn');
             var formError = document.getElementById('form-error');
+            var successSent = document.getElementById('success-sent');
 
             function setError(name, on) {
                 var field = form.querySelector('[data-field="' + name + '"]');
@@ -212,35 +211,40 @@
                 return ok;
             }
 
-            function showSuccess(id) {
-                form.classList.add('is-hidden');
-                document.getElementById(id).classList.add('is-visible');
+            function resetButton() {
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Request a ShopLine demo';
             }
 
-            function openMailto(fields) {
-                var notes = fields.notes;
-                var body = [
-                    'Name: ' + fields.name,
-                    'Shop: ' + fields.shop,
-                    'Email: ' + fields.email,
-                    'Phone: ' + fields.phone,
-                    'City / state: ' + fields.location,
-                    'Calls today: ' + (fields.volume || '(not provided)'),
-                    'Preferred contact time: ' + fields.time,
-                    '',
-                    'Notes:',
-                    notes || '(none)'
-                ].join('\n');
-                var href = 'mailto:' + DEMO_EMAIL +
-                    '?subject=' + encodeURIComponent('ShopLine demo request — ' + fields.shop) +
-                    '&body=' + encodeURIComponent(body);
-                if (href.length > 1800) {
-                    body = body.slice(0, 1200) + '\n\n[Message shortened. The full note is in the form you already filled in.]';
-                    href = 'mailto:' + DEMO_EMAIL +
-                        '?subject=' + encodeURIComponent('ShopLine demo request — ' + fields.shop) +
-                        '&body=' + encodeURIComponent(body);
-                }
-                window.location.href = href;
+            function showSuccess() {
+                var nodes = Array.prototype.slice.call(successSent.childNodes);
+                form.classList.add('is-hidden');
+                formError.replaceChildren();
+                successSent.replaceChildren();
+                successSent.hidden = false;
+                successSent.classList.add('is-visible');
+                nodes.forEach(function (node) {
+                    successSent.appendChild(node);
+                });
+            }
+
+            function showRequestFailed() {
+                var mail = document.createElement('a');
+                var phone = document.createElement('a');
+                form.classList.remove('is-hidden');
+                successSent.hidden = true;
+                successSent.classList.remove('is-visible');
+                resetButton();
+                mail.href = 'mailto:' + DEMO_EMAIL + '?subject=' + encodeURIComponent('ShopLine demo request');
+                mail.textContent = DEMO_EMAIL;
+                phone.href = 'tel:' + DEMO_PHONE_TEL;
+                phone.textContent = DEMO_PHONE_TEXT;
+                formError.replaceChildren();
+                formError.append("The request didn't go through. Email ");
+                formError.append(mail);
+                formError.append(' or call ');
+                formError.append(phone);
+                formError.append('.');
             }
 
             form.addEventListener('submit', function (event) {
@@ -250,7 +254,7 @@
                 if (!validate(fields)) return;
 
                 if (fields.company_website) {
-                    showSuccess('success-sent');
+                    showSuccess();
                     return;
                 }
 
@@ -269,22 +273,19 @@
                     });
                 }).then(function (result) {
                     if (result.status === 200 && result.payload.ok) {
-                        showSuccess('success-sent');
+                        showSuccess();
                         return;
                     }
                     if (result.status === 400 && result.payload.errors) {
                         Object.keys(result.payload.errors).forEach(function (key) {
                             setError(key, true);
                         });
-                        submitBtn.disabled = false;
-                        submitBtn.textContent = 'Request a ShopLine demo';
+                        resetButton();
                         return;
                     }
-                    openMailto(fields);
-                    showSuccess('success-mailto');
+                    showRequestFailed();
                 }).catch(function () {
-                    openMailto(fields);
-                    showSuccess('success-mailto');
+                    showRequestFailed();
                 });
             });
         })();

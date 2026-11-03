@@ -244,6 +244,13 @@ h1 {
     max-width: 42rem;
 }
 
+.support {
+    margin-top: 14px;
+    color: var(--muted);
+    font-size: 1.05rem;
+    max-width: 42rem;
+}
+
 .section {
     padding: 28px 0 72px;
 }
@@ -324,6 +331,10 @@ h1 {
     gap: 48px;
     align-items: center;
     padding: 64px 0 28px;
+}
+
+.hero.hero-solo {
+    grid-template-columns: 1fr;
 }
 
 .trust-row {
@@ -541,6 +552,17 @@ h1 {
     padding: 56px 0 12px;
 }
 
+.stack {
+    display: grid;
+    gap: 16px;
+}
+
+.card .cta-group,
+.info-card .cta-group,
+.stack .cta-group {
+    margin-top: 18px;
+}
+
 .prose {
     max-width: 44rem;
 }
@@ -592,6 +614,12 @@ h1 {
     color: var(--muted);
     margin-top: 6px;
     max-width: 38rem;
+}
+
+.cta-band a:not(.btn) {
+    color: var(--cyan);
+    text-decoration: underline;
+    text-underline-offset: 0.15em;
 }
 
 /* ===== CONTACT ===== */
@@ -748,8 +776,22 @@ h1 {
     text-decoration: none;
 }
 
-.info-card a:hover {
+.info-card a:not(.btn):hover {
     text-decoration: underline;
+}
+
+a.btn-primary {
+    color: #fff;
+    text-decoration: none;
+}
+
+a.btn-primary:hover {
+    color: #fff;
+}
+
+a.btn-secondary {
+    color: var(--text);
+    text-decoration: none;
 }
 
 .status-card {

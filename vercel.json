@@ -2,7 +2,9 @@
   "rewrites": [
     { "source": "/demo", "destination": "/demo.html" },
     { "source": "/privacy", "destination": "/privacy.html" },
-    { "source": "/sms-terms", "destination": "/sms-terms.html" }
+    { "source": "/sms-terms", "destination": "/sms-terms.html" },
+    { "source": "/openclaw/privacy", "destination": "/openclaw/privacy.html" },
+    { "source": "/openclaw/terms", "destination": "/openclaw/terms.html" }
   ],
   "headers": [
     {

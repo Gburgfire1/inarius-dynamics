@@ -260,6 +260,20 @@ h1 {
     margin-bottom: 28px;
 }
 
+.section[id],
+.card[id] {
+    scroll-margin-top: 88px;
+}
+
+.section-head a {
+    color: var(--cyan);
+}
+
+.section-head a:hover {
+    text-decoration: underline;
+    text-underline-offset: 0.15em;
+}
+
 .section-head h2,
 .block-title {
     font-size: clamp(1.7rem, 3vw, 2.35rem);
@@ -484,6 +498,15 @@ h1 {
     font-size: 1.05rem;
     letter-spacing: -0.02em;
     margin-bottom: 8px;
+}
+
+.card h3 a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.card h3 a:hover {
+    color: var(--cyan);
 }
 
 .card p,
